@@ -1,0 +1,674 @@
+
+<Window x:Class="GorillaShinyRox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Gorilla Shiny Rox"
+        MinWidth="920"
+        MinHeight="740"
+        Width="1100"
+        Height="820"
+        WindowStartupLocation="CenterScreen"
+        Background="#0E1118"
+        FontFamily="Segoe UI">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="BackgroundBrush" Color="#0E1118"/>
+        <SolidColorBrush x:Key="PanelBrush" Color="#171C27"/>
+        <SolidColorBrush x:Key="PanelBrush2" Color="#111722"/>
+        <SolidColorBrush x:Key="BorderBrushSoft" Color="#2B3445"/>
+        <SolidColorBrush x:Key="TextBrush" Color="#F4F7FB"/>
+        <SolidColorBrush x:Key="MutedBrush" Color="#9BA8BA"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="#BCA7FF"/>
+        <SolidColorBrush x:Key="AccentDarkBrush" Color="#2D2448"/>
+        <SolidColorBrush x:Key="InputBrush" Color="#0D131D"/>
+
+        <Style x:Key="Card" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource PanelBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrushSoft}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="18"/>
+            <Setter Property="Padding" Value="22"/>
+        </Style>
+
+        <Style x:Key="SmallLabel" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource MutedBrush}"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,0,0,6"/>
+        </Style>
+
+        <Style x:Key="HelpText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#7F8EA3"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Margin" Value="0,6,0,0"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="Padding" Value="10,2"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="Background" Value="{StaticResource InputBrush}"/>
+            <Setter Property="BorderBrush" Value="#354157"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="CaretBrush" Value="{StaticResource TextBrush}"/>
+        </Style>
+
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Height" Value="44"/>
+            <Setter Property="Padding" Value="18,0"/>
+            <Setter Property="Margin" Value="0,0,10,0"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#0E1118"/>
+            <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <Style x:Key="SecondaryButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="Background" Value="#222B3A"/>
+            <Setter Property="BorderBrush" Value="#3B4658"/>
+        </Style>
+
+        <Style x:Key="TinyButton" TargetType="Button" BasedOn="{StaticResource SecondaryButton}">
+            <Setter Property="Height" Value="34"/>
+            <Setter Property="Padding" Value="12,0"/>
+            <Setter Property="Margin" Value="0,0,8,8"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="MinWidth" Value="78"/>
+        </Style>
+
+        <Style TargetType="ProgressBar">
+            <Setter Property="Height" Value="14"/>
+            <Setter Property="Foreground" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="Background" Value="#0C111A"/>
+            <Setter Property="BorderBrush" Value="#354157"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid Background="{StaticResource BackgroundBrush}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid Margin="28">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="0,0,0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel>
+                        <TextBlock Text="Gorilla Shiny Rox"
+                                   Foreground="{StaticResource TextBrush}"
+                                   FontSize="36"
+                                   FontWeight="Bold"/>
+                        <TextBlock Text="Track your Shiny Rox and see when you can buy your next cosmetic."
+                                   Foreground="{StaticResource MutedBrush}"
+                                   FontSize="15"
+                                   Margin="1,4,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Button Content="Tips"
+                                Style="{StaticResource SecondaryButton}"
+                                Margin="0,0,10,0"
+                                Click="TipsButton_Click"/>
+                        <Border Background="{StaticResource PanelBrush2}"
+                                BorderBrush="{StaticResource BorderBrushSoft}"
+                                BorderThickness="1"
+                                CornerRadius="14"
+                                Padding="14,10">
+                            <StackPanel>
+                                <TextBlock Text="Unlock date"
+                                           Foreground="{StaticResource MutedBrush}"
+                                           FontSize="12"
+                                           FontWeight="SemiBold"/>
+                                <TextBlock x:Name="HeaderEtaText"
+                                           Text="Set timer"
+                                           Foreground="{StaticResource TextBrush}"
+                                           FontSize="18"
+                                           FontWeight="Bold"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+
+                <Border Grid.Row="1"
+                        Style="{StaticResource Card}"
+                        Background="{StaticResource PanelBrush2}"
+                        Margin="0,0,0,18">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.2*"/>
+                            <ColumnDefinition Width="0.8*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Next Shiny Rox in"
+                                       Foreground="{StaticResource TextBrush}"
+                                       FontSize="22"
+                                       FontWeight="Bold"
+                                       Margin="0,0,0,4"/>
+
+                            <Viewbox Stretch="Uniform"
+                                     MaxHeight="112"
+                                     HorizontalAlignment="Left">
+                                <TextBlock x:Name="LiveTimerText"
+                                           Text="00:00:00"
+                                           FontFamily="Consolas"
+                                           FontSize="88"
+                                           FontWeight="Bold"
+                                           Foreground="{StaticResource AccentBrush}"/>
+                            </Viewbox>
+
+                            <TextBlock x:Name="RewardText"
+                                       Text="+100 Shiny Rox"
+                                       Foreground="{StaticResource TextBrush}"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Margin="0,10,0,2"/>
+
+                            <TextBlock x:Name="GoalTimeText"
+                                       Text="Enter the next Shiny Rox timer, then click Set Timer."
+                                       Foreground="{StaticResource MutedBrush}"
+                                       FontSize="15"/>
+                        </StackPanel>
+
+                        <Border Grid.Column="1"
+                                Background="#121927"
+                                BorderBrush="{StaticResource BorderBrushSoft}"
+                                BorderThickness="1"
+                                CornerRadius="16"
+                                Padding="20"
+                                Margin="22,0,0,0">
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="Current Shiny Rox"
+                                           Foreground="{StaticResource MutedBrush}"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"/>
+                                <TextBlock x:Name="CurrentRoxText"
+                                           Text="3,500"
+                                           Foreground="{StaticResource TextBrush}"
+                                           FontSize="42"
+                                           FontWeight="Bold"
+                                           Margin="0,2,0,18"/>
+
+                                <Grid Margin="0,0,0,8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Progress to cosmetic"
+                                               Foreground="{StaticResource MutedBrush}"
+                                               FontSize="13"/>
+                                    <TextBlock x:Name="ProgressText"
+                                               Grid.Column="1"
+                                               Text="31%"
+                                               Foreground="{StaticResource TextBrush}"
+                                               FontSize="13"
+                                               FontWeight="Bold"/>
+                                </Grid>
+
+                                <ProgressBar x:Name="ProgressBar"
+                                             Minimum="0"
+                                             Maximum="100"
+                                             Value="31"/>
+
+                                <TextBlock x:Name="RemainingText"
+                                           Text="7,900 Shiny Rox needed"
+                                           Foreground="{StaticResource MutedBrush}"
+                                           FontSize="14"
+                                           Margin="0,14,0,0"/>
+
+                                <Border Background="{StaticResource AccentDarkBrush}"
+                                        CornerRadius="12"
+                                        Padding="12"
+                                        Margin="0,18,0,0">
+                                    <StackPanel>
+                                        <TextBlock Text="Cosmetic unlock date"
+                                                   Foreground="{StaticResource MutedBrush}"
+                                                   FontSize="12"
+                                                   FontWeight="SemiBold"/>
+                                        <TextBlock x:Name="GoalDateText"
+                                                   Text="Set timer"
+                                                   Foreground="{StaticResource TextBrush}"
+                                                   FontSize="21"
+                                                   FontWeight="Bold"
+                                                   Margin="0,3,0,0"/>
+                                        <TextBlock x:Name="GoalTimeOfDayText"
+                                                   Text=""
+                                                   Foreground="{StaticResource AccentBrush}"
+                                                   FontSize="15"
+                                                   FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.05*"/>
+                        <ColumnDefinition Width="0.95*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="0,0,9,0">
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,18">
+                            <StackPanel>
+                                <TextBlock Text="Shiny Rox setup"
+                                           Foreground="{StaticResource TextBrush}"
+                                           FontSize="24"
+                                           FontWeight="Bold"/>
+                                <TextBlock Text="Use the values shown in Gorilla Tag."
+                                           Foreground="{StaticResource MutedBrush}"
+                                           FontSize="14"
+                                           Margin="0,2,0,18"/>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,9,14">
+                                        <TextBlock Text="Current Shiny Rox" Style="{StaticResource SmallLabel}"/>
+                                        <TextBox x:Name="CurrentRoxBox"/>
+                                        <TextBlock Text="Example: 3500" Style="{StaticResource HelpText}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="9,0,0,14">
+                                        <TextBlock Text="Cosmetic price / goal" Style="{StaticResource SmallLabel}"/>
+                                        <TextBox x:Name="GoalRoxBox"/>
+                                        <TextBlock Text="Example: 11400" Style="{StaticResource HelpText}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,9,14">
+                                        <TextBlock Text="Shiny Rox per reward" Style="{StaticResource SmallLabel}"/>
+                                        <TextBox x:Name="RoxPerRewardBox"/>
+                                        <TextBlock Text="Usually 100." Style="{StaticResource HelpText}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="9,0,0,14">
+                                        <TextBlock Text="How often does it repeat?" Style="{StaticResource SmallLabel}"/>
+                                        <TextBox x:Name="RewardCycleHoursBox"/>
+                                        <TextBlock Text="Enter hours. Daily = 24. Every 100 hours = 100." Style="{StaticResource HelpText}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="0,0,9,0">
+                                        <TextBlock Text="Next Shiny Rox in: hours" Style="{StaticResource SmallLabel}"/>
+                                        <TextBox x:Name="NextRewardHoursBox"/>
+                                        <TextBlock Text="Example from game: 2 HR 12 MIN → enter 2 here." Style="{StaticResource HelpText}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="9,0,0,0">
+                                        <TextBlock Text="Next Shiny Rox in: minutes" Style="{StaticResource SmallLabel}"/>
+                                        <TextBox x:Name="NextRewardMinutesBox"/>
+                                        <TextBlock Text="Example from game: 2 HR 12 MIN → enter 12 here." Style="{StaticResource HelpText}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Style="{StaticResource Card}">
+                            <StackPanel>
+                                <TextBlock Text="Cosmetic finder"
+                                           Foreground="{StaticResource TextBrush}"
+                                           FontSize="22"
+                                           FontWeight="Bold"/>
+                                <TextBlock Text="Search the offline list, or load the online wiki catalog with images."
+                                           Foreground="{StaticResource MutedBrush}"
+                                           FontSize="14"
+                                           Margin="0,2,0,16"/>
+
+                                <TextBlock Text="Cosmetic name" Style="{StaticResource SmallLabel}"/>
+                                <TextBox x:Name="CosmeticNameBox" Margin="0,0,0,10"/>
+
+                                <WrapPanel Margin="0,0,0,10">
+                                    <Button Content="Search Cosmetic"
+                                            Style="{StaticResource PrimaryButton}"
+                                            Click="FindCosmeticButton_Click"/>
+                                    <Button Content="Use Selected Price"
+                                            Style="{StaticResource SecondaryButton}"
+                                            Click="UseSelectedCosmeticPriceButton_Click"/>
+                                    <Button Content="Open Wiki"
+                                            Style="{StaticResource SecondaryButton}"
+                                            Click="OpenCosmeticWikiButton_Click"/>
+                                </WrapPanel>
+
+                                <TextBlock Text="Possible matches"
+                                           Style="{StaticResource SmallLabel}"
+                                           Margin="0,4,0,6"/>
+
+                                <ListBox x:Name="CosmeticResultsList"
+                                         Height="110"
+                                         Background="#0D131D"
+                                         Foreground="#F4F7FB"
+                                         BorderBrush="#354157"
+                                         BorderThickness="1"
+                                         FontSize="14"
+                                         SelectionChanged="CosmeticResultsList_SelectionChanged"
+                                         Margin="0,0,0,10"/>
+
+                                <TextBlock x:Name="CosmeticResultText"
+                                           Text="Search example: Golden Head, Sweatband, Cat Ears. If a cosmetic is missing, type the price manually."
+                                           Foreground="{StaticResource MutedBrush}"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           Margin="0,0,0,18"/>
+
+                                <TextBlock Text="Cosmetic catalog"
+                                           Foreground="{StaticResource TextBrush}"
+                                           FontSize="20"
+                                           FontWeight="Bold"/>
+                                <TextBlock Text="Loads cosmetics online. Most prices show when available; some are Free, creator-only, or Price unknown."
+                                           Foreground="{StaticResource MutedBrush}"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           Margin="0,2,0,10"/>
+<WrapPanel Margin="0,0,0,10">
+                                    <Button Content="Load All Current Cosmetics"
+                                            Style="{StaticResource PrimaryButton}"
+                                            Click="LoadCatalogButton_Click"/>
+                                    <Button Content="Use Gallery Price"
+                                            Style="{StaticResource SecondaryButton}"
+                                            Click="UseGalleryPriceButton_Click"/>
+                                    <Button Content="Open Selected"
+                                            Style="{StaticResource SecondaryButton}"
+                                            Click="OpenGalleryItemButton_Click"/>
+                                </WrapPanel>
+
+                                <TextBlock x:Name="CatalogStatusText"
+                                           Text="Catalog not loaded yet. Click Load All Current Cosmetics."
+                                           Foreground="{StaticResource MutedBrush}"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           Margin="0,0,0,8"/>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.05*"/>
+                                        <ColumnDefinition Width="0.95*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <ListBox x:Name="CatalogList"
+                                             Grid.Column="0"
+                                             Height="210"
+                                             Background="#0D131D"
+                                             Foreground="#F4F7FB"
+                                             BorderBrush="#354157"
+                                             BorderThickness="1"
+                                             SelectionChanged="CatalogList_SelectionChanged">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Padding="8"
+                                                        Margin="2"
+                                                        Background="#111722"
+                                                        BorderBrush="#263248"
+                                                        BorderThickness="1"
+                                                        CornerRadius="8">
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding Title}"
+                                                                   Foreground="#F4F7FB"
+                                                                   FontSize="14"
+                                                                   FontWeight="SemiBold"
+                                                                   TextWrapping="Wrap"/>
+                                                        <TextBlock Text="{Binding PriceText}"
+                                                                   Foreground="#BCA7FF"
+                                                                   FontSize="12"
+                                                                   Margin="0,3,0,0"/>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+
+                                    <Border Grid.Column="1"
+                                            Background="#0D131D"
+                                            BorderBrush="#354157"
+                                            BorderThickness="1"
+                                            CornerRadius="12"
+                                            Padding="12"
+                                            Margin="12,0,0,0">
+                                        <StackPanel>
+                                            <TextBlock x:Name="SelectedCatalogNameText"
+                                                       Text="Select a cosmetic"
+                                                       Foreground="#F4F7FB"
+                                                       FontSize="18"
+                                                       FontWeight="Bold"
+                                                       TextWrapping="Wrap"/>
+                                            <Border Background="#111722"
+                                                    BorderBrush="#354157"
+                                                    BorderThickness="1"
+                                                    CornerRadius="10"
+                                                    Padding="12"
+                                                    Margin="0,10,0,10">
+                                                <TextBlock Text="Image preview removed for public beta stability."
+                                                           Foreground="#9BA8BA"
+                                                           FontSize="13"
+                                                           TextWrapping="Wrap"/>
+                                            </Border>
+                                            <TextBlock x:Name="SelectedCatalogPriceText"
+                                                       Text="Price: select item"
+                                                       Foreground="#BCA7FF"
+                                                       FontSize="14"
+                                                       FontWeight="SemiBold"/>
+                                            <TextBlock Text="Select a cosmetic to preview its price."
+                                                       Foreground="#7F8EA3"
+                                                       FontSize="12"
+                                                       TextWrapping="Wrap"
+                                                       Margin="0,8,0,0"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <Border Grid.Column="1"
+                            Style="{StaticResource Card}"
+                            Margin="9,0,0,0">
+                        <StackPanel>
+                            <TextBlock Text="Actions"
+                                       Foreground="{StaticResource TextBrush}"
+                                       FontSize="24"
+                                       FontWeight="Bold"/>
+                            <TextBlock Text="Presets help if you do not know what to enter."
+                                       Foreground="{StaticResource MutedBrush}"
+                                       FontSize="14"
+                                       Margin="0,2,0,18"/>
+
+                            <TextBlock Text="Quick presets"
+                                       Foreground="{StaticResource TextBrush}"
+                                       FontWeight="Bold"
+                                       FontSize="15"
+                                       Margin="0,0,0,8"/>
+
+                            <WrapPanel Margin="0,0,0,12">
+                                <Button Content="Daily"
+                                        Style="{StaticResource TinyButton}"
+                                        Click="PresetDailyButton_Click"/>
+                                <Button Content="12 Hours"
+                                        Style="{StaticResource TinyButton}"
+                                        Click="Preset12Button_Click"/>
+                                <Button Content="100 Hours"
+                                        Style="{StaticResource TinyButton}"
+                                        Click="Preset100Button_Click"/>
+                                <Button Content="Use Repeat"
+                                        Style="{StaticResource TinyButton}"
+                                        Click="UseRepeatButton_Click"/>
+                            </WrapPanel>
+
+                            <UniformGrid Columns="2" Rows="3">
+                                <Button Content="Set Timer"
+                                        Style="{StaticResource PrimaryButton}"
+                                        Click="SetTimerButton_Click"/>
+                                <Button Content="Save"
+                                        Style="{StaticResource SecondaryButton}"
+                                        Click="SaveButton_Click"/>
+                                <Button Content="Tips"
+                                        Style="{StaticResource SecondaryButton}"
+                                        Click="TipsButton_Click"/>
+                                <Button Content="Add Reward"
+                                        Style="{StaticResource SecondaryButton}"
+                                        Click="AddRewardButton_Click"/>
+                                <Button Content="Reset Timer"
+                                        Style="{StaticResource SecondaryButton}"
+                                        Click="ResetRewardButton_Click"/>
+                                <Button Content="Exit"
+                                        Style="{StaticResource SecondaryButton}"
+                                        Click="ExitButton_Click"/>
+                            </UniformGrid>
+
+                            <Border Background="{StaticResource PanelBrush2}"
+                                    BorderBrush="{StaticResource BorderBrushSoft}"
+                                    BorderThickness="1"
+                                    CornerRadius="14"
+                                    Padding="16"
+                                    Margin="0,22,0,0">
+                                <StackPanel>
+                                    <TextBlock Text="Status"
+                                               Foreground="{StaticResource MutedBrush}"
+                                               FontSize="13"
+                                               FontWeight="SemiBold"/>
+                                    <TextBlock x:Name="StatusText"
+                                               Text="Timer running"
+                                               Foreground="{StaticResource TextBrush}"
+                                               FontSize="19"
+                                               FontWeight="Bold"
+                                               Margin="0,4,0,0"/>
+                                    <TextBlock x:Name="RewardsLeftText"
+                                               Text="79 rewards left"
+                                               Foreground="{StaticResource MutedBrush}"
+                                               FontSize="14"
+                                               Margin="0,6,0,0"/>
+                                    <TextBlock x:Name="EtaFullText"
+                                               Text="Unlock date"
+                                               Foreground="{StaticResource MutedBrush}"
+                                               FontSize="14"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <TextBlock Grid.Row="3"
+                           Text="Unofficial fan tracker. Not affiliated with Another Axiom or Gorilla Tag. Cosmetic prices come from community wiki data and may not always be current."
+                           Foreground="#6F7B8B"
+                           FontSize="12"
+                           TextAlignment="Center"
+                           Margin="0,16,0,0"/>
+            </Grid>
+        </ScrollViewer>
+
+        <Grid x:Name="TipsOverlay"
+              Visibility="Collapsed"
+              Background="#AA000000">
+            <Border Width="580"
+                    Background="#171C27"
+                    BorderBrush="#3B4658"
+                    BorderThickness="1"
+                    CornerRadius="18"
+                    Padding="22"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Content="×"
+                            Width="34"
+                            Height="34"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Background="#222B3A"
+                            Foreground="White"
+                            BorderBrush="#3B4658"
+                            FontSize="20"
+                            FontWeight="Bold"
+                            Click="CloseTipsButton_Click"/>
+
+                    <StackPanel Grid.Row="0" Margin="0,0,44,14">
+                        <TextBlock Text="How to use Gorilla Shiny Rox"
+                                   Foreground="#F4F7FB"
+                                   FontSize="26"
+                                   FontWeight="Bold"/>
+                        <TextBlock Text="Use the numbers shown in Gorilla Tag."
+                                   Foreground="#9BA8BA"
+                                   FontSize="14"
+                                   Margin="0,4,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Margin="0,6,0,16">
+                        <TextBlock Text="1. Enter your current Shiny Rox."
+                                   Foreground="#F4F7FB"
+                                   FontSize="15"
+                                   Margin="0,0,0,8"/>
+                        <TextBlock Text="2. Enter the cosmetic price, or use Cosmetic Finder."
+                                   Foreground="#F4F7FB"
+                                   FontSize="15"
+                                   Margin="0,0,0,8"/>
+                        <TextBlock Text="3. Enter how many Shiny Rox you get each reward."
+                                   Foreground="#F4F7FB"
+                                   FontSize="15"
+                                   Margin="0,0,0,8"/>
+                        <TextBlock Text="4. Enter how often the reward repeats. Daily = 24 hours."
+                                   Foreground="#F4F7FB"
+                                   FontSize="15"
+                                   Margin="0,0,0,8"/>
+                        <TextBlock Text="5. Enter how long until the next Shiny Rox reward happens."
+                                   Foreground="#F4F7FB"
+                                   FontSize="15"
+                                   Margin="0,0,0,8"/>
+                        <TextBlock Text="6. Click Set Timer."
+                                   Foreground="#F4F7FB"
+                                   FontSize="15"/>
+                    </StackPanel>
+
+                    <Border Grid.Row="2"
+                            Background="#0D131D"
+                            BorderBrush="#354157"
+                            BorderThickness="1"
+                            CornerRadius="12"
+                            Padding="14">
+                        <TextBlock Text="Example: If Gorilla Tag says “100 more rocks in 8 HR 12 MIN”, enter 100 Shiny Rox per reward, 8 hours, and 12 minutes."
+                                   Foreground="#BCA7FF"
+                                   FontSize="14"
+                                   TextWrapping="Wrap"/>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
