@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gorilla Shiny Rox</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0d111a;
+      color: #f4f6ff;
+    }
+
+    .page {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 28px 20px 42px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .brand-title {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .brand-subtitle {
+      color: #aeb8d1;
+      margin-top: 6px;
+      font-size: 15px;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .top-pill {
+      background: #121826;
+      border: 1px solid #273248;
+      border-radius: 14px;
+      padding: 10px 14px;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .top-pill small {
+      display: block;
+      color: #aeb8d1;
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .card {
+      background: #121826;
+      border: 1px solid #273248;
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      padding: 28px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(40px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+    }
+
+    h3 {
+      margin: 16px 0 10px;
+      font-size: 16px;
+    }
+
+    .purple {
+      color: #b99cff;
+    }
+
+    .muted {
+      color: #b8c2d9;
+      line-height: 1.55;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin: 18px 0 24px;
+      max-width: 650px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    button,
+    .btn {
+      border: 1px solid #344158;
+      background: #1d2636;
+      color: #f4f6ff;
+      font-weight: 900;
+      border-radius: 10px;
+      padding: 13px 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      transition: 0.15s ease;
+    }
+
+    button:hover,
+    .btn:hover {
+      border-color: #b99cff;
+      transform: translateY(-1px);
+    }
+
+    button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .primary,
+    .btn-main {
+      background: #b99cff;
+      color: #111827;
+      border-color: #b99cff;
+    }
+
+    .danger {
+      color: #ffd6d6;
+      border-color: rgba(255, 107, 107, 0.55);
+    }
+
+    .mini-card {
+      background: #0e1421;
+      border: 1px solid #2b354b;
+      border-radius: 16px;
+      padding: 22px;
+    }
+
+    .mini-label,
+    label {
+      color: #aeb8d1;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .timer {
+      font-size: clamp(44px, 7vw, 68px);
+      color: #b99cff;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin: 12px 0 18px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .summary-box {
+      background: #0c1220;
+      border: 1px solid #263149;
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .summary-box span {
+      display: block;
+      color: #aeb8d1;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .summary-box strong {
+      display: block;
+      font-size: 24px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      color: #aeb8d1;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .bar {
+      height: 13px;
+      background: #222b3d;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      width: 0%;
+      background: #b99cff;
+      transition: width 0.25s ease;
+    }
+
+    .ready {
+      background: #2e234d;
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 18px;
+    }
+
+    .ready small {
+      color: #b8c2d9;
+      font-weight: 800;
+    }
+
+    .ready strong {
+      display: block;
+      font-size: 24px;
+      margin-top: 6px;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    input {
+      width: 100%;
+      background: #0a101a;
+      color: #f4f6ff;
+      border: 1px solid #344158;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #b99cff;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #8792aa;
+    }
+
+    .actions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .wide-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .status {
+      background: #0c1220;
+      border: 1px solid #263149;
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 14px;
+      color: #b8c2d9;
+      line-height: 1.5;
+    }
+
+    .status strong {
+      color: #f4f6ff;
+      font-size: 20px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .tips-box {
+      display: none;
+      background: #0c1220;
+      border: 1px solid #263149;
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 14px;
+      color: #b8c2d9;
+      line-height: 1.55;
+    }
+
+    .tips-box.show {
+      display: block;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .catalog-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+      max-height: 360px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .catalog-item {
+      background: #0c1220;
+      border: 1px solid #263149;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .catalog-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .catalog-item span {
+      color: #aeb8d1;
+      font-size: 13px;
+    }
+
+    .catalog-item button {
+      min-height: 36px;
+      padding: 8px 12px;
+      white-space: nowrap;
+    }
+
+    .footer {
+      color: #8792aa;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.6;
+      padding-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .main-grid,
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .top-actions,
+      .buttons,
+      button,
+      .btn {
+        width: 100%;
+      }
+
+      .form-grid,
+      .summary-grid,
+      .wide-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      .panel {
+        padding: 18px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <main class="page">
+    <div class="top">
+      <div>
+        <div class="brand-title">Gorilla Shiny Rox</div>
+        <div class="brand-subtitle">Track your Shiny Rox and see when you can buy your next cosmetic.</div>
+      </div>
+
+```
+  <div class="top-actions">
+    <button id="topTipsBtn" type="button">Tips</button>
+    <div class="top-pill">
+      <small>Unlock date</small>
+      <span id="topUnlock">Set timer</span>
+    </div>
+  </div>
+</div>
+
+<section class="hero card">
+  <div>
+    <h1>Track your <span class="purple">Shiny Rox</span>.</h1>
+
+    <p class="muted">
+      Enter your current Shiny Rox, the real in-game reward timer, and your cosmetic goal.
+      The website will estimate when you can afford it.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-main" href="https://github.com/SonicCreator10899/GorillaShinyRox/releases" target="_blank" rel="noopener">
+        Download Beta
+      </a>
+
+      <a class="btn" href="https://github.com/SonicCreator10899/GorillaShinyRox" target="_blank" rel="noopener">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <div class="mini-card">
+    <div class="mini-label">Next Shiny Rox in</div>
+    <div class="timer" id="timerDisplay">00:00:00</div>
+
+    <div class="summary-grid">
+      <div class="summary-box">
+        <span>Current Shiny Rox</span>
+        <strong id="currentDisplay">3,500</strong>
+      </div>
+
+      <div class="summary-box">
+        <span>Goal</span>
+        <strong id="goalDisplay">11,400</strong>
+      </div>
+    </div>
+
+    <div class="progress-label">
+      <span>Progress to cosmetic</span>
+      <strong id="progressText">31%</strong>
+    </div>
+
+    <div class="bar">
+      <div class="bar-fill" id="progressBar"></div>
+    </div>
+
+    <div class="ready">
+      <small>Cosmetic unlock date</small>
+      <strong id="unlockDate">Set timer</strong>
+    </div>
+  </div>
+</section>
+
+<section class="main-grid">
+  <div class="card panel">
+    <h2>Shiny Rox setup</h2>
+    <div class="muted">Use the values shown in Gorilla Tag.</div>
+
+    <div class="form-grid">
+      <div class="field">
+        <label for="currentRox">Current Shiny Rox</label>
+        <input id="currentRox" type="number" min="0" value="3500" />
+        <div class="hint">Example: 3500</div>
+      </div>
+
+      <div class="field">
+        <label for="goalPrice">Cosmetic price / goal</label>
+        <input id="goalPrice" type="number" min="0" value="11400" />
+        <div class="hint">Example: 11400</div>
+      </div>
+
+      <div class="field">
+        <label for="rewardAmount">Shiny Rox per reward</label>
+        <input id="rewardAmount" type="number" min="1" value="100" />
+        <div class="hint">Usually 100.</div>
+      </div>
+
+      <div class="field">
+        <label for="repeatHours">How often does it repeat?</label>
+        <input id="repeatHours" type="number" min="1" value="24" />
+        <div class="hint">Daily = 24. Every 100 hours = 100.</div>
+      </div>
+
+      <div class="field">
+        <label for="nextHours">Next Shiny Rox in: hours</label>
+        <input id="nextHours" type="number" min="0" value="0" />
+        <div class="hint">Example: 2 HR 12 MIN → enter 2 here.</div>
+      </div>
+
+      <div class="field">
+        <label for="nextMinutes">Next Shiny Rox in: minutes</label>
+        <input id="nextMinutes" type="number" min="0" max="59" value="0" />
+        <div class="hint">Example: 2 HR 12 MIN → enter 12 here.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card panel">
+    <h2>Actions</h2>
+    <div class="muted">Presets help if you do not know what to enter.</div>
+
+    <h3>Quick presets</h3>
+
+    <div class="actions-grid">
+      <button type="button" data-repeat="24">Daily</button>
+      <button type="button" data-repeat="12">12 Hours</button>
+      <button type="button" data-repeat="100">100 Hours</button>
+      <button type="button" id="useRepeatBtn">Use Repeat</button>
+    </div>
+
+    <div class="wide-actions">
+      <button type="button" class="primary" id="setTimerBtn">Set Timer</button>
+      <button type="button" id="saveBtn">Save</button>
+      <button type="button" id="addRewardBtn">Add Reward</button>
+      <button type="button" class="danger" id="resetBtn">Reset Timer</button>
+    </div>
+
+    <div class="status" id="statusBox">
+      <strong>Status</strong>
+      Enter your Shiny Rox, goal, and timer. Then click Set Timer.
+    </div>
+
+    <div class="tips-box" id="tipsBox">
+      <strong>Tips</strong>
+      <ul>
+        <li>Open Gorilla Tag and copy the timer shown in game.</li>
+        <li>If the game says 2 HR 12 MIN, enter 2 hours and 12 minutes.</li>
+        <li>If your goal says Ready, you already have enough Shiny Rox.</li>
+        <li>The site saves your numbers in this browser only.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="catalog-grid">
+  <div class="card panel">
+    <h2>Cosmetic goal helper</h2>
+    <div class="muted">Pick a common goal price or creator badge note.</div>
+
+    <div class="form-grid" style="grid-template-columns: 1fr auto; align-items:end;">
+      <div class="field">
+        <label for="catalogSearch">Search</label>
+        <input id="catalogSearch" type="text" placeholder="Search price, free, badge..." />
+      </div>
+
+      <button type="button" id="loadCatalogBtn">Load Catalog</button>
+    </div>
+
+    <div class="catalog-list" id="catalogList"></div>
+  </div>
+
+  <div class="card panel">
+    <h2>Safety & beta notes</h2>
+    <ul class="muted">
+      <li>No Gorilla Tag login needed.</li>
+      <li>No account connection.</li>
+      <li>Uses only numbers you type manually.</li>
+      <li>Cosmetic images are not included in this beta for stability.</li>
+      <li>Always check the in-game shop before buying.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="footer">
+  This is an unofficial fan-made tool and is not affiliated with Gorilla Tag, Another Axiom, Meta, or any official Gorilla Tag team.
+</div>
+```
+
+  </main>
+
+  <script>
+    const STORAGE_KEY = "gorilla-shiny-rox-web-v2";
+
+    const catalogItems = [
+      { name: "Free cosmetic", price: 0, note: "Free item" },
+      { name: "500 Shiny Rox goal", price: 500, note: "Common small cosmetic price" },
+      { name: "1,000 Shiny Rox goal", price: 1000, note: "Common cosmetic price" },
+      { name: "2,000 Shiny Rox goal", price: 2000, note: "Common cosmetic price" },
+      { name: "2,500 Shiny Rox goal", price: 2500, note: "Common cosmetic price" },
+      { name: "3,500 Shiny Rox goal", price: 3500, note: "Common cosmetic price" },
+      { name: "4,000 Shiny Rox goal", price: 4000, note: "Common cosmetic price" },
+      { name: "5,000 Shiny Rox goal", price: 5000, note: "Common cosmetic price" },
+      { name: "6,500 Shiny Rox goal", price: 6500, note: "Common cosmetic price" },
+      { name: "7,500 Shiny Rox goal", price: 7500, note: "Common cosmetic price" },
+      { name: "10,000 Shiny Rox goal", price: 10000, note: "Large cosmetic goal" },
+      { name: "11,400 Shiny Rox goal", price: 11400, note: "Large cosmetic goal" },
+      { name: "AA Creator Badge", price: null, note: "Creator-only badge, not buyable" },
+      { name: "Finger Painter Badge", price: null, note: "Creator-only badge, not buyable" },
+      { name: "Illustrator Badge", price: null, note: "Creator-only badge, not buyable" }
+    ];
+
+    const els = {
+      currentRox: document.getElementById("currentRox"),
+      goalPrice: document.getElementById("goalPrice"),
+      rewardAmount: document.getElementById("rewardAmount"),
+      repeatHours: document.getElementById("repeatHours"),
+      nextHours: document.getElementById("nextHours"),
+      nextMinutes: document.getElementById("nextMinutes"),
+      timerDisplay: document.getElementById("timerDisplay"),
+      currentDisplay: document.getElementById("currentDisplay"),
+      goalDisplay: document.getElementById("goalDisplay"),
+      progressText: document.getElementById("progressText"),
+      progressBar: document.getElementById("progressBar"),
+      unlockDate: document.getElementById("unlockDate"),
+      topUnlock: document.getElementById("topUnlock"),
+      statusBox: document.getElementById("statusBox"),
+      tipsBox: document.getElementById("tipsBox"),
+      catalogList: document.getElementById("catalogList"),
+      catalogSearch: document.getElementById("catalogSearch")
+    };
+
+    let nextRewardAt = null;
+
+    function numberValue(el, fallback = 0) {
+      const value = Number(el.value);
+      return Number.isFinite(value) && value >= 0 ? value : fallback;
+    }
+
+    function formatNumber(value) {
+      return Math.round(value).toLocaleString();
+    }
+
+    function formatDuration(ms) {
+      if (!nextRewardAt || ms <= 0) return "00:00:00";
+
+      const totalSeconds = Math.floor(ms / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      return String(hours).padStart(2, "0") + ":" +
+             String(minutes).padStart(2, "0") + ":" +
+             String(seconds).padStart(2, "0");
+    }
+
+    function formatDate(date) {
+      return date.toLocaleString([], {
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit"
+      });
+    }
+
+    function saveState() {
+      const state = {
+        currentRox: numberValue(els.currentRox, 0),
+        goalPrice: numberValue(els.goalPrice, 0),
+        rewardAmount: Math.max(1, numberValue(els.rewardAmount, 100)),
+        repeatHours: Math.max(1, numberValue(els.repeatHours, 24)),
+        nextHours: numberValue(els.nextHours, 0),
+        nextMinutes: numberValue(els.nextMinutes, 0),
+        nextRewardAt: nextRewardAt
+      };
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function loadState() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return;
+
+      try {
+        const state = JSON.parse(saved);
+
+        if (state.currentRox !== undefined) els.currentRox.value = state.currentRox;
+        if (state.goalPrice !== undefined) els.goalPrice.value = state.goalPrice;
+        if (state.rewardAmount !== undefined) els.rewardAmount.value = state.rewardAmount;
+        if (state.repeatHours !== undefined) els.repeatHours.value = state.repeatHours;
+        if (state.nextHours !== undefined) els.nextHours.value = state.nextHours;
+        if (state.nextMinutes !== undefined) els.nextMinutes.value = state.nextMinutes;
+        if (state.nextRewardAt) nextRewardAt = Number(state.nextRewardAt);
+      } catch {
+        localStorage.removeItem(STORAGE_KEY);
+      }
+    }
+
+    function advancePastRewards() {
+      if (!nextRewardAt) return;
+
+      const now = Date.now();
+      const repeatMs = Math.max(1, numberValue(els.repeatHours, 24)) * 60 * 60 * 1000;
+      const reward = Math.max(1, numberValue(els.rewardAmount, 100));
+      let current = numberValue(els.currentRox, 0);
+      let changed = false;
+
+      while (nextRewardAt <= now) {
+        current += reward;
+        nextRewardAt += repeatMs;
+        changed = true;
+      }
+
+      if (changed) {
+        els.currentRox.value = current;
+        saveState();
+      }
+    }
+
+    function calculate() {
+      advancePastRewards();
+
+      const current = numberValue(els.currentRox, 0);
+      const goal = numberValue(els.goalPrice, 0);
+      const reward = Math.max(1, numberValue(els.rewardAmount, 100));
+      const repeatHours = Math.max(1, numberValue(els.repeatHours, 24));
+      const now = Date.now();
+      const msToNext = nextRewardAt ? Math.max(0, nextRewardAt - now) : 0;
+      const progress = goal <= 0 ? 100 : Math.min(100, Math.floor((current / goal) * 100));
+
+      els.currentDisplay.textContent = formatNumber(current);
+      els.goalDisplay.textContent = formatNumber(goal);
+      els.progressText.textContent = progress + "%";
+      els.progressBar.style.width = progress + "%";
+      els.timerDisplay.textContent = formatDuration(msToNext);
+
+      if (goal <= 0) {
+        els.unlockDate.textContent = "Free";
+        els.topUnlock.textContent = "Free";
+        els.statusBox.innerHTML = "<strong>Status</strong>This goal is free.";
+        return;
+      }
+
+      if (current >= goal) {
+        els.unlockDate.textContent = "Ready";
+        els.topUnlock.textContent = "Ready";
+        els.statusBox.innerHTML = "<strong>Ready to buy</strong>You have enough Shiny Rox for this goal.";
+        return;
+      }
+
+      const needed = goal - current;
+      const rewardsNeeded = Math.ceil(needed / reward);
+
+      if (!nextRewardAt) {
+        els.unlockDate.textContent = "Set timer";
+        els.topUnlock.textContent = "Set timer";
+        els.statusBox.innerHTML = "<strong>Set timer</strong>You need " + formatNumber(needed) + " more Shiny Rox. Enter the in-game timer and click Set Timer.";
+        return;
+      }
+
+      const totalMs = msToNext + (rewardsNeeded - 1) * repeatHours * 60 * 60 * 1000;
+      const unlock = new Date(now + totalMs);
+      const unlockText = formatDate(unlock);
+
+      els.unlockDate.textContent = unlockText;
+      els.topUnlock.textContent = unlockText;
+      els.statusBox.innerHTML = "<strong>Estimated unlock</strong>You need " + rewardsNeeded + " reward" + (rewardsNeeded === 1 ? "" : "s") + ". Estimated: " + unlockText + ".";
+    }
+
+    function setTimer() {
+      const hours = numberValue(els.nextHours, 0);
+      const minutes = numberValue(els.nextMinutes, 0);
+      const totalMs = ((hours * 60) + minutes) * 60 * 1000;
+
+      if (totalMs <= 0) {
+        nextRewardAt = null;
+        els.statusBox.innerHTML = "<strong>Timer not set</strong>Enter the timer from Gorilla Tag first.";
+      } else {
+        nextRewardAt = Date.now() + totalMs;
+        els.statusBox.innerHTML = "<strong>Timer set</strong>The countdown is now running in this browser.";
+      }
+
+      saveState();
+      calculate();
+    }
+
+    function resetTimer() {
+      nextRewardAt = null;
+      els.nextHours.value = 0;
+      els.nextMinutes.value = 0;
+      saveState();
+      calculate();
+    }
+
+    function addReward() {
+      const current = numberValue(els.currentRox, 0);
+      const reward = Math.max(1, numberValue(els.rewardAmount, 100));
+
+      els.currentRox.value = current + reward;
+      saveState();
+      calculate();
+    }
+
+    function useRepeatAsNextTimer() {
+      const repeat = Math.max(1, numberValue(els.repeatHours, 24));
+
+      els.nextHours.value = repeat;
+      els.nextMinutes.value = 0;
+
+      setTimer();
+    }
+
+    function renderCatalog() {
+      const query = els.catalogSearch.value.trim().toLowerCase();
+      const filtered = catalogItems.filter(item => {
+        const priceText = item.price === null ? "creator badge not buyable" : String(item.price);
+        return (item.name + " " + item.note + " " + priceText).toLowerCase().includes(query);
+      });
+
+      els.catalogList.innerHTML = "";
+
+      filtered.forEach(item => {
+        const row = document.createElement("div");
+        row.className = "catalog-item";
+
+        const left = document.createElement("div");
+
+        const title = document.createElement("strong");
+        title.textContent = item.name;
+
+        const note = document.createElement("span");
+        note.textContent = item.price === null
+          ? item.note
+          : item.note + " • " + formatNumber(item.price) + " Shiny Rox";
+
+        left.appendChild(title);
+        left.appendChild(note);
+
+        const button = document.createElement("button");
+
+        if (item.price === null) {
+          button.textContent = "Not buyable";
+          button.disabled = true;
+        } else {
+          button.textContent = "Use price";
+          button.addEventListener("click", () => {
+            els.goalPrice.value = item.price;
+            saveState();
+            calculate();
+          });
+        }
+
+        row.appendChild(left);
+        row.appendChild(button);
+
+        els.catalogList.appendChild(row);
+      });
+    }
+
+    document.getElementById("setTimerBtn").addEventListener("click", setTimer);
+
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      saveState();
+      els.statusBox.innerHTML = "<strong>Saved</strong>Your numbers were saved in this browser.";
+    });
+
+    document.getElementById("addRewardBtn").addEventListener("click", addReward);
+    document.getElementById("resetBtn").addEventListener("click", resetTimer);
+    document.getElementById("useRepeatBtn").addEventListener("click", useRepeatAsNextTimer);
+
+    document.getElementById("topTipsBtn").addEventListener("click", () => {
+      els.tipsBox.classList.toggle("show");
+    });
+
+    document.getElementById("loadCatalogBtn").addEventListener("click", renderCatalog);
+    els.catalogSearch.addEventListener("input", renderCatalog);
+
+    document.querySelectorAll("[data-repeat]").forEach(button => {
+      button.addEventListener("click", () => {
+        els.repeatHours.value = button.dataset.repeat;
+        els.nextHours.value = button.dataset.repeat;
+        els.nextMinutes.value = 0;
+
+        saveState();
+        calculate();
+      });
+    });
+
+    [
+      els.currentRox,
+      els.goalPrice,
+      els.rewardAmount,
+      els.repeatHours,
+      els.nextHours,
+      els.nextMinutes
+    ].forEach(input => {
+      input.addEventListener("input", () => {
+        saveState();
+        calculate();
+      });
+    });
+
+    loadState();
+    renderCatalog();
+    calculate();
+    setInterval(calculate, 1000);
+  </script>
+
+</body>
+</html>
