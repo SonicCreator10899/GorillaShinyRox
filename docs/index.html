@@ -1,15 +1,326 @@
-<h1>Gorilla Shiny Rox</h1>
+<!DOCTYPE html>
 
-<p>
-Gorilla Shiny Rox is an unofficial Shiny Rox tracker for Gorilla Tag.
-It helps players enter their current Shiny Rox, the in-game timer, and a cosmetic price to estimate when they can afford it.
-</p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gorilla Shiny Rox — Shiny Rox Tracker for Gorilla Tag</title>
 
-<p>
-Download the latest beta from GitHub:
-<a href="https://github.com/SonicCreator10899/GorillaShinyRox/releases">Download Gorilla Shiny Rox</a>
-</p>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<p>
-This is an unofficial fan tool and is not affiliated with Gorilla Tag, Another Axiom, or Meta.
-</p>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0d111a;
+      color: #f4f6ff;
+    }
+
+    .page {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 40px 22px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .tag {
+      color: #aeb8d1;
+      margin-top: 8px;
+      font-size: 15px;
+    }
+
+    .badge {
+      border: 1px solid #b99cff;
+      color: #b99cff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .hero {
+      background: #121826;
+      border: 1px solid #273248;
+      border-radius: 18px;
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 48px;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .purple {
+      color: #b99cff;
+    }
+
+    .hero p {
+      color: #b8c2d9;
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 22px 0;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 800;
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+
+    .btn-main {
+      background: #b99cff;
+      color: #111827;
+    }
+
+    .btn-secondary {
+      background: #1d2636;
+      color: #f4f6ff;
+      border: 1px solid #344158;
+    }
+
+    .mini-card {
+      background: #0e1421;
+      border: 1px solid #2b354b;
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .mini-label {
+      color: #aeb8d1;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .timer {
+      font-size: 46px;
+      font-weight: 900;
+      color: #b99cff;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #aeb8d1;
+      margin-bottom: 8px;
+    }
+
+    .bar {
+      height: 13px;
+      background: #222b3d;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      width: 78%;
+      height: 100%;
+      background: #b99cff;
+    }
+
+    .ready {
+      background: #2e234d;
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 18px;
+    }
+
+    .ready small {
+      color: #b8c2d9;
+      font-weight: 700;
+    }
+
+    .ready strong {
+      display: block;
+      font-size: 26px;
+      margin-top: 6px;
+    }
+
+    .section {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #121826;
+      border: 1px solid #273248;
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .card p,
+    .card li {
+      color: #b8c2d9;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      color: #8792aa;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 26px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .section {
+        grid-template-columns: 1fr;
+      }
+
+      .timer {
+        font-size: 38px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <main class="page">
+    <div class="top">
+      <div>
+        <div class="logo">Gorilla Shiny Rox</div>
+        <div class="tag">Unofficial Shiny Rox tracker for Gorilla Tag</div>
+      </div>
+      <div class="badge">v0.1 Beta</div>
+    </div>
+
+```
+<section class="hero">
+  <div>
+    <h1>Track your <span class="purple">Shiny Rox</span>.</h1>
+
+    <p>
+      Gorilla Shiny Rox helps Gorilla Tag players enter their current Shiny Rox,
+      the in-game reward timer, and a cosmetic price to estimate when they can afford it.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-main" href="https://github.com/SonicCreator10899/GorillaShinyRox/releases">
+        Download Beta
+      </a>
+
+      <a class="btn btn-secondary" href="https://github.com/SonicCreator10899/GorillaShinyRox">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <div class="mini-card">
+    <div class="mini-label">Next Shiny Rox in</div>
+    <div class="timer">00:00:00</div>
+
+    <div class="progress-label">
+      <span>Progress to cosmetic</span>
+      <strong>78%</strong>
+    </div>
+
+    <div class="bar">
+      <div class="bar-fill"></div>
+    </div>
+
+    <div class="ready">
+      <small>Cosmetic unlock date</small>
+      <strong>Ready soon</strong>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <h2>Features</h2>
+    <ul>
+      <li>Track current Shiny Rox</li>
+      <li>Enter the real in-game timer</li>
+      <li>Estimate when you can afford cosmetics</li>
+      <li>Supports free and price unknown items</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Safety</h2>
+    <ul>
+      <li>No Gorilla Tag login needed</li>
+      <li>No account connection</li>
+      <li>Uses only numbers you type manually</li>
+      <li>Open-source fan utility</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Beta Notes</h2>
+    <p>
+      This is an early beta. Cosmetic images are not included yet for stability.
+      Prices may be incomplete, so always check the in-game shop before buying.
+    </p>
+  </div>
+</section>
+
+<div class="footer">
+  This is an unofficial fan-made tool and is not affiliated with Gorilla Tag,
+  Another Axiom, Meta, or any official Gorilla Tag team.
+</div>
+```
+
+  </main>
+</body>
+</html>
