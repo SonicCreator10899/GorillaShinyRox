@@ -4,6 +4,22 @@
 
 It helps players track their current Shiny Rox, enter the real in-game reward timer, and estimate when they can afford a cosmetic.
 
+## Website
+
+You can also use the web version here:
+
+https://soniccreator10899.github.io/GorillaShinyRox/
+
+The website version works in the browser and does not require a download. It uses the numbers you type in manually, just like the app.
+
+## Download
+
+Download the latest Windows beta from the official GitHub Releases page:
+
+https://github.com/SonicCreator10899/GorillaShinyRox/releases
+
+Only download Gorilla Shiny Rox from the official GitHub Releases page. Do not trust random reuploads.
+
 ## Screenshot
 
 ![Gorilla Shiny Rox main tracker](assets/screenshot-main.png)
@@ -13,6 +29,8 @@ It helps players track their current Shiny Rox, enter the real in-game reward ti
 * Track your current Shiny Rox
 * Enter the in-game Shiny Rox countdown timer
 * Estimate when you can afford a cosmetic
+* Use the browser version without downloading anything
+* Use the Windows app version if you want the desktop app
 * Load current cosmetic names and prices when available
 * Supports normal Shiny Rox prices
 * Supports Free cosmetics
@@ -26,12 +44,12 @@ It helps players track their current Shiny Rox, enter the real in-game reward ti
 1. Open Gorilla Tag.
 2. Check your current Shiny Rocks.
 3. Check how long until your next Shiny Rocks reward.
-4. Open Gorilla Shiny Rox.
+4. Open the Gorilla Shiny Rox app or website.
 5. Enter your current Shiny Rox.
 6. Enter the next reward timer from the game.
 7. Enter or select a cosmetic price.
 8. Click **Set Timer**.
-9. The app will estimate when you can afford the cosmetic.
+9. The app or website will estimate when you can afford the cosmetic.
 
 Example:
 
@@ -59,16 +77,17 @@ https://www.anotheraxiom.com/aa-creator
 
 ## Safety & Privacy
 
-Gorilla Shiny Rox is an open-source fan-made utility app.
+Gorilla Shiny Rox is an open-source fan-made utility.
 
-The app does **not** collect personal information, does **not** ask for your Gorilla Tag login, and does **not** connect to your Gorilla Tag account.
+The app and website do **not** collect personal information, do **not** ask for your Gorilla Tag login, and do **not** connect to your Gorilla Tag account.
 
-The app only uses the numbers you type in manually, such as your current Shiny Rox amount, cosmetic goal price, and the in-game countdown timer.
+The tool only uses the numbers you type in manually, such as your current Shiny Rox amount, cosmetic goal price, and the in-game countdown timer.
 
-If Windows shows a warning, it may be because this is a small beta app from an independent developer and the `.exe` is not code-signed yet. That does not automatically mean the app is unsafe.
+If Windows shows a warning for the `.exe`, it may be because this is a small beta app from an independent developer and the app is not code-signed yet. That does not automatically mean the app is unsafe.
 
 For safety, you can:
 
+* Use the website version without downloading anything
 * Review the source code in this repository
 * Build the app yourself in Visual Studio
 * Scan the download with Windows Security or VirusTotal
@@ -81,7 +100,7 @@ Never download random reuploads from other websites.
 * Cosmetic images are not included in this beta for stability.
 * Cosmetic prices may be incomplete or outdated.
 * Always check the in-game shop before buying.
-* The app does not connect to Gorilla Tag automatically.
+* The app and website do not connect to Gorilla Tag automatically.
 * The user must enter their Shiny Rox and timer manually.
 * Windows may show a warning because this beta is not code-signed yet.
 
