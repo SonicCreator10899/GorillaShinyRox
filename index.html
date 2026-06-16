@@ -441,7 +441,6 @@
         <div class="brand-subtitle">Track your Shiny Rox and see when you can buy your next cosmetic.</div>
       </div>
 
-```
   <div class="top-actions">
     <button id="topTipsBtn" type="button">Tips</button>
     <div class="top-pill">
@@ -478,18 +477,18 @@
     <div class="summary-grid">
       <div class="summary-box">
         <span>Current Shiny Rox</span>
-        <strong id="currentDisplay">3,500</strong>
+        <strong id="currentDisplay">0</strong>
       </div>
 
       <div class="summary-box">
         <span>Goal</span>
-        <strong id="goalDisplay">11,400</strong>
+        <strong id="goalDisplay">0</strong>
       </div>
     </div>
 
     <div class="progress-label">
       <span>Progress to cosmetic</span>
-      <strong id="progressText">31%</strong>
+      <strong id="progressText">0%</strong>
     </div>
 
     <div class="bar">
@@ -511,13 +510,13 @@
     <div class="form-grid">
       <div class="field">
         <label for="currentRox">Current Shiny Rox</label>
-        <input id="currentRox" type="number" min="0" value="3500" />
+        <input id="currentRox" type="number" min="0" value="0" />
         <div class="hint">Example: 3500</div>
       </div>
 
       <div class="field">
         <label for="goalPrice">Cosmetic price / goal</label>
-        <input id="goalPrice" type="number" min="0" value="11400" />
+        <input id="goalPrice" type="number" min="0" value="0" />
         <div class="hint">Example: 11400</div>
       </div>
 
@@ -616,12 +615,11 @@
 <div class="footer">
   This is an unofficial fan-made tool and is not affiliated with Gorilla Tag, Another Axiom, Meta, or any official Gorilla Tag team.
 </div>
-```
 
   </main>
 
   <script>
-    const STORAGE_KEY = "gorilla-shiny-rox-web-v2";
+    const STORAGE_KEY = "gorilla-shiny-rox-web-v3-zero-start";
 
     const catalogItems = [
       { name: "Free cosmetic", price: 0, note: "Free item" },
@@ -757,7 +755,7 @@
       const repeatHours = Math.max(1, numberValue(els.repeatHours, 24));
       const now = Date.now();
       const msToNext = nextRewardAt ? Math.max(0, nextRewardAt - now) : 0;
-      const progress = goal <= 0 ? 100 : Math.min(100, Math.floor((current / goal) * 100));
+      const progress = goal <= 0 ? 0 : Math.min(100, Math.floor((current / goal) * 100));
 
       els.currentDisplay.textContent = formatNumber(current);
       els.goalDisplay.textContent = formatNumber(goal);
@@ -766,9 +764,9 @@
       els.timerDisplay.textContent = formatDuration(msToNext);
 
       if (goal <= 0) {
-        els.unlockDate.textContent = "Free";
-        els.topUnlock.textContent = "Free";
-        els.statusBox.innerHTML = "<strong>Status</strong>This goal is free.";
+        els.unlockDate.textContent = "Set goal";
+        els.topUnlock.textContent = "Set goal";
+        els.statusBox.innerHTML = "<strong>Status</strong>Enter a cosmetic goal price.";
         return;
       }
 
@@ -817,9 +815,13 @@
 
     function resetTimer() {
       nextRewardAt = null;
+      els.currentRox.value = 0;
+      els.goalPrice.value = 0;
+      els.rewardAmount.value = 100;
+      els.repeatHours.value = 24;
       els.nextHours.value = 0;
       els.nextMinutes.value = 0;
-      saveState();
+      localStorage.removeItem(STORAGE_KEY);
       calculate();
     }
 
