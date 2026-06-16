@@ -53,6 +53,25 @@ To apply for the Another Axiom creator program, visit:
 
 https://www.anotheraxiom.com/aa-creator
 
+## Safety & Privacy
+
+Gorilla Shiny Rox is an open-source fan-made utility app.
+
+The app does **not** collect personal information, does **not** ask for your Gorilla Tag login, and does **not** connect to your Gorilla Tag account.
+
+The app only uses the numbers you type in manually, such as your current Shiny Rox amount, cosmetic goal price, and the in-game countdown timer.
+
+If Windows shows a warning, it may be because this is a small beta app from an independent developer and the `.exe` is not code-signed yet. That does not automatically mean the app is unsafe.
+
+For safety, you can:
+
+* Review the source code in this repository
+* Build the app yourself in Visual Studio
+* Scan the download with Windows Security or VirusTotal
+* Only download the app from the official GitHub Releases page
+
+Never download random reuploads from other websites.
+
 ## Known Limitations
 
 * Cosmetic images are not included in this beta for stability.
@@ -60,6 +79,7 @@ https://www.anotheraxiom.com/aa-creator
 * Always check the in-game shop before buying.
 * The app does not connect to Gorilla Tag automatically.
 * The user must enter their Shiny Rox and timer manually.
+* Windows may show a warning because this beta is not code-signed yet.
 
 ## Disclaimer
 
