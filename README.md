@@ -4,12 +4,16 @@
 
 It helps players track their current Shiny Rox, enter the real in-game reward timer, and estimate when they can afford a cosmetic.
 
+## Screenshot
+
+![Gorilla Shiny Rox main tracker](assets/screenshot-main.png)
+
 ## Features
 
 * Track your current Shiny Rox
 * Enter the in-game Shiny Rox countdown timer
 * Estimate when you can afford a cosmetic
-* Load current cosmetics and prices when available
+* Load current cosmetic names and prices when available
 * Supports normal Shiny Rox prices
 * Supports Free cosmetics
 * Supports Price Unknown items
