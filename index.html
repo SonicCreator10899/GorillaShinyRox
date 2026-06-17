@@ -1072,7 +1072,7 @@
   </main>
 
   <script>
-    const STORAGE_KEY = "gorilla-shiny-rox-web-v7-gorillacon-countdown";
+    const STORAGE_KEY = "gorilla-shiny-rox-web-v8-zero-defaults";
 
     // Official GorillaCon 2026 starts June 25, 2026 in Anaheim, CA. Using 6:30 AM Pacific time to better match the official GorillaCon website countdown.
     const GORILLACON_START = new Date("2026-06-25T06:30:00-07:00");
@@ -1252,6 +1252,19 @@
     };
 
     let nextRewardAt = null;
+
+
+    function resetOldDemoDefaults() {
+      const current = Number(els.currentRox.value);
+      const goal = Number(els.goalPrice.value);
+
+      if ((current === 3500 && goal === 500) || (current === 3500 && goal === 11400)) {
+        els.currentRox.value = 0;
+        els.goalPrice.value = 0;
+        nextRewardAt = null;
+        localStorage.removeItem(STORAGE_KEY);
+      }
+    }
 
     function numberValue(el, fallback = 0) {
       const value = Number(el.value);
@@ -1580,6 +1593,7 @@
     setInterval(updateGorillaConCountdown, 1000);
 
     loadState();
+    resetOldDemoDefaults();
     renderCatalog();
     calculate();
     setInterval(calculate, 1000);
