@@ -14,7 +14,7 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #0d111a;
+      background: #07110f;
       color: #f4f6ff;
     }
 
@@ -52,8 +52,8 @@
     }
 
     .top-pill {
-      background: #121826;
-      border: 1px solid #273248;
+      background: #101d1a;
+      border: 1px solid #365b50;
       border-radius: 14px;
       padding: 10px 14px;
       text-align: center;
@@ -68,8 +68,8 @@
     }
 
     .card {
-      background: #121826;
-      border: 1px solid #273248;
+      background: #101d1a;
+      border: 1px solid #365b50;
       border-radius: 18px;
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
     }
@@ -100,7 +100,7 @@
     }
 
     .purple {
-      color: #b99cff;
+      color: #ffcc00;
     }
 
     .muted {
@@ -122,8 +122,8 @@
 
     button,
     .btn {
-      border: 1px solid #344158;
-      background: #1d2636;
+      border: 1px solid #446b5e;
+      background: #162923;
       color: #f4f6ff;
       font-weight: 900;
       border-radius: 10px;
@@ -139,7 +139,7 @@
 
     button:hover,
     .btn:hover {
-      border-color: #b99cff;
+      border-color: #ffcc00;
       transform: translateY(-1px);
     }
 
@@ -151,9 +151,9 @@
 
     .primary,
     .btn-main {
-      background: #b99cff;
-      color: #111827;
-      border-color: #b99cff;
+      background: #ffcc00;
+      color: #07110f;
+      border-color: #ffcc00;
     }
 
     .danger {
@@ -162,7 +162,7 @@
     }
 
     .mini-card {
-      background: #0e1421;
+      background: #0b1715;
       border: 1px solid #2b354b;
       border-radius: 16px;
       padding: 22px;
@@ -177,7 +177,7 @@
 
     .timer {
       font-size: clamp(44px, 7vw, 68px);
-      color: #b99cff;
+      color: #ffcc00;
       font-weight: 900;
       letter-spacing: 2px;
       margin: 12px 0 18px;
@@ -192,8 +192,8 @@
     }
 
     .summary-box {
-      background: #0c1220;
-      border: 1px solid #263149;
+      background: #091411;
+      border: 1px solid #28463e;
       border-radius: 12px;
       padding: 14px;
     }
@@ -222,7 +222,7 @@
 
     .bar {
       height: 13px;
-      background: #222b3d;
+      background: #263d35;
       border-radius: 999px;
       overflow: hidden;
     }
@@ -230,12 +230,12 @@
     .bar-fill {
       height: 100%;
       width: 0%;
-      background: #b99cff;
+      background: #ffcc00;
       transition: width 0.25s ease;
     }
 
     .ready {
-      background: #2e234d;
+      background: #20372f;
       border-radius: 12px;
       padding: 18px;
       margin-top: 18px;
@@ -280,7 +280,7 @@
       width: 100%;
       background: #0a101a;
       color: #f4f6ff;
-      border: 1px solid #344158;
+      border: 1px solid #446b5e;
       border-radius: 6px;
       padding: 12px;
       font-size: 16px;
@@ -288,7 +288,7 @@
     }
 
     input:focus {
-      border-color: #b99cff;
+      border-color: #ffcc00;
     }
 
     .hint {
@@ -311,8 +311,8 @@
     }
 
     .status {
-      background: #0c1220;
-      border: 1px solid #263149;
+      background: #091411;
+      border: 1px solid #28463e;
       border-radius: 14px;
       padding: 16px;
       margin-top: 14px;
@@ -329,8 +329,8 @@
 
     .tips-box {
       display: none;
-      background: #0c1220;
-      border: 1px solid #263149;
+      background: #091411;
+      border: 1px solid #28463e;
       border-radius: 14px;
       padding: 16px;
       margin-top: 14px;
@@ -359,8 +359,8 @@
     }
 
     .catalog-item {
-      background: #0c1220;
-      border: 1px solid #263149;
+      background: #091411;
+      border: 1px solid #28463e;
       border-radius: 12px;
       padding: 12px;
       display: flex;
@@ -386,12 +386,12 @@
     }
 
     .catalog-section-heading {
-      color: #b99cff;
+      color: #ffcc00;
       font-size: 15px;
       font-weight: 900;
       margin: 8px 0 2px;
       padding: 8px 4px 2px;
-      border-bottom: 1px solid #273248;
+      border-bottom: 1px solid #365b50;
     }
 
     .footer {
@@ -445,6 +445,88 @@
     .catalog-item { padding: 14px; }
     .footer { max-width: 820px; margin: 0 auto; }
 
+  
+    .gt-style-strip {
+      margin: 0 0 18px;
+      padding: 18px 20px;
+      border: 1px solid #446b5e;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 8% 30%, rgba(255, 204, 0, 0.14), transparent 18%),
+        radial-gradient(circle at 92% 60%, rgba(47, 120, 89, 0.28), transparent 22%),
+        linear-gradient(135deg, #0b1715, #123229 55%, #0b1715);
+      box-shadow: 0 14px 38px rgba(0,0,0,0.24);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gt-style-strip::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent 0 10%, rgba(255,204,0,0.06) 10% 11%, transparent 11% 25%),
+        linear-gradient(135deg, transparent 0 65%, rgba(255,204,0,0.05) 65% 67%, transparent 67%);
+      pointer-events: none;
+    }
+
+    .gt-style-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+    }
+    .gt-style-title {
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .gt-style-title span {
+      color: #ffcc00;
+    }
+
+    .gt-style-text {
+      color: #cfe1d8;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .gt-style-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .gt-style-tag {
+      border: 1px solid #ffcc00;
+      color: #ffcc00;
+      background: rgba(7,17,15,0.78);
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 760px) {
+      .gt-style-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .gt-style-tags {
+        justify-content: center;
+      }
+    }
+
   </style>
 
 </head>
@@ -454,7 +536,7 @@
     <div class="top">
       <div>
         <div class="brand-title">Gorilla Shiny Rox</div>
-        <div class="brand-subtitle">Track Shiny Rox, goals, and cosmetic prices.</div>
+        <div class="brand-subtitle">Gorilla Tag cosmetic tracker.</div>
       </div>
 
   <div class="top-actions">
@@ -471,8 +553,8 @@
     <h1>Track your <span class="purple">Shiny Rox</span>.</h1>
 
     <p class="muted">
-      Enter your Shiny Rox, timer, and cosmetic goal.
-      The tracker estimates when you can afford it.
+      Enter your Shiny Rox, reward timer, and cosmetic goal.
+      The tracker estimates when you can afford your next item.
     </p>
 
     <div class="buttons">
@@ -514,6 +596,21 @@
     <div class="ready">
       <small>Cosmetic unlock date</small>
       <strong id="unlockDate">Set timer</strong>
+    </div>
+  </div>
+</section>
+
+
+<section class="gt-style-strip">
+  <div class="gt-style-content">
+    <div>
+      <div class="gt-style-title">Gorilla Tag <span>cosmetic tracker</span></div>
+      <div class="gt-style-text">Clean tracker, cosmetic catalog, Creator Fest links, and no extra clutter.</div>
+    </div>
+    <div class="gt-style-tags">
+      <span class="gt-style-tag">Shiny Rox</span>
+      <span class="gt-style-tag">Cosmetics</span>
+      <span class="gt-style-tag">Creator Fest</span>
     </div>
   </div>
 </section>
