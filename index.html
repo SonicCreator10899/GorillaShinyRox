@@ -385,6 +385,15 @@
       white-space: nowrap;
     }
 
+    .catalog-section-heading {
+      color: #b99cff;
+      font-size: 15px;
+      font-weight: 900;
+      margin: 8px 0 2px;
+      padding: 8px 4px 2px;
+      border-bottom: 1px solid #273248;
+    }
+
     .footer {
       color: #8792aa;
       text-align: center;
@@ -429,6 +438,271 @@
         padding: 18px;
       }
     }
+  
+
+    .gorillacon-wrap {
+      margin-top: 22px;
+      margin-bottom: 22px;
+      padding: 20px;
+      border: 2px solid rgba(255, 199, 0, 0.9);
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04), transparent 18%),
+        radial-gradient(circle at 80% 35%, rgba(255,255,255,0.03), transparent 22%),
+        radial-gradient(circle at 45% 80%, rgba(255,255,255,0.025), transparent 16%),
+        linear-gradient(180deg, rgba(73,102,97,0.95), rgba(63,90,86,0.96));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gorillacon-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at top right, rgba(255,255,255,0.05), transparent 30%);
+    }
+
+    .gorillacon-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #ffc700;
+      font-size: clamp(28px, 4vw, 56px);
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+      margin-bottom: 22px;
+    }
+
+    .gorillacon-heading .icon {
+      font-size: clamp(28px, 4vw, 54px);
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+    }
+
+    .gorillacon-sub {
+      margin-top: -4px;
+      margin-bottom: 20px;
+      color: rgba(255,255,255,0.82);
+      font-size: 14px;
+    }
+
+    .gorillacon-countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(110px, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .gcon-tile {
+      background: rgba(7, 22, 30, 0.95);
+      border-radius: 22px;
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 18px 30px rgba(0,0,0,0.18);
+      transform: rotate(-3deg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gcon-tile:nth-child(2) { transform: rotate(2deg); }
+    .gcon-tile:nth-child(3) { transform: rotate(-2deg); }
+    .gcon-tile:nth-child(4) { transform: rotate(3deg); }
+
+    .gcon-tile.yellow { border: 5px solid #ffcc00; }
+    .gcon-tile.orange { border: 5px solid #ff5f24; }
+    .gcon-tile.white { border: 5px solid #dcece4; }
+    .gcon-tile.cream { border: 5px solid #ebe2ae; }
+
+    .gcon-number {
+      font-size: clamp(40px, 5.4vw, 78px);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #f7ebef;
+      line-height: 0.95;
+    }
+
+    .gcon-label {
+      margin-top: 16px;
+      font-size: 18px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .gcon-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .gcon-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 190px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .gcon-links a:hover { transform: translateY(-1px); opacity: 0.96; }
+
+    .gcon-primary {
+      background: #ffcc00;
+      color: #10151f;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
+
+    .gcon-secondary {
+      background: rgba(7,22,30,0.95);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .gcon-limited {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      color: #ffd36a;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+
+    .gorillacon-wrap.ended .gorillacon-countdown {
+      display: none;
+    }
+
+    .gcon-ended-message {
+      display: none;
+      background: rgba(7, 22, 30, 0.95);
+      border: 2px solid #ffcc00;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 18px;
+      color: #ffffff;
+      font-size: clamp(24px, 4vw, 42px);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .gorillacon-wrap.ended .gcon-ended-message {
+      display: block;
+    }
+
+    .gcon-meta {
+      margin-top: 8px;
+      color: rgba(255,255,255,0.8);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .gorillacon-countdown {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+      }
+      .gcon-tile { min-height: 150px; }
+    }
+
+    @media (max-width: 560px) {
+      .gorillacon-countdown {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .gorillacon-wrap { padding: 16px; }
+      .gorillacon-heading { gap: 10px; }
+      .gcon-links a { width: 100%; }
+    }
+
+  
+    .gorillacon-wrap.ended .gorillacon-countdown {
+      display: grid;
+    }
+
+    .gorillacon-wrap.ended .gcon-ended-message {
+      display: none;
+    }
+
+    .gcon-surprise {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 10, 14, 0.78);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 18px;
+    }
+
+    .gcon-surprise.show {
+      display: flex;
+    }
+
+    .gcon-surprise-card {
+      width: min(720px, 94vw);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 204, 0, 0.18), transparent 28%),
+        radial-gradient(circle at 80% 30%, rgba(255, 91, 36, 0.18), transparent 28%),
+        #071c20;
+      border: 3px solid #ffcc00;
+      border-radius: 22px;
+      padding: 34px 26px;
+      text-align: center;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.48);
+      color: #ffffff;
+      transform: rotate(-1deg);
+    }
+
+    .gcon-surprise-title {
+      color: #ffcc00;
+      font-size: clamp(34px, 6vw, 70px);
+      line-height: 0.95;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.35);
+      margin-bottom: 16px;
+    }
+
+    .gcon-surprise-text {
+      color: #fff0f3;
+      font-size: clamp(18px, 2.4vw, 28px);
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .gcon-confetti {
+      font-size: clamp(26px, 5vw, 52px);
+      margin-bottom: 14px;
+      letter-spacing: 0.25em;
+    }
+
+    .gcon-surprise-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .gcon-surprise-actions a,
+    .gcon-surprise-actions button {
+      min-width: 160px;
+    }
+
   </style>
 
 </head>
@@ -583,10 +857,48 @@
   </div>
 </section>
 
+
+<section class="gorillacon-wrap" id="gorillaConBox">
+  <div class="gorillacon-heading"><span class="icon">⏰</span><span>Countdown to GorillaCon</span></div>
+  <div class="gorillacon-sub">Live countdown using the official GorillaCon 2026 event date.</div>
+
+  <div class="gcon-ended-message" id="gconEndedMessage">
+    GorillaCon is live!
+  </div>
+
+  <div class="gorillacon-countdown" id="gorillaConCountdown">
+    <div class="gcon-tile yellow">
+      <div class="gcon-number" id="gconDays">00</div>
+      <div class="gcon-label">Days</div>
+    </div>
+    <div class="gcon-tile orange">
+      <div class="gcon-number" id="gconHours">00</div>
+      <div class="gcon-label">Hrs</div>
+    </div>
+    <div class="gcon-tile white">
+      <div class="gcon-number" id="gconMinutes">00</div>
+      <div class="gcon-label">Min</div>
+    </div>
+    <div class="gcon-tile cream">
+      <div class="gcon-number" id="gconSeconds">00</div>
+      <div class="gcon-label">Sec</div>
+    </div>
+  </div>
+
+  <div class="gcon-links">
+    <a class="gcon-primary" href="https://www.gorillatagvr.com/gorillacon-2026" target="_blank" rel="noopener">Open GorillaCon 2026</a>
+    <a class="gcon-secondary" href="https://shop.gorillatagvr.com/" target="_blank" rel="noopener">Open Gorilla Tag Merch</a>
+  </div>
+
+  <div class="gcon-limited">★ Creator Fest is limited-time</div>
+  <div class="gcon-meta">Synced to GorillaCon 2026: June 25, 2026 at 9:30 AM Pacific time.</div>
+  <div class="gcon-meta">This section is placed above Cosmetic goal helper so people can quickly jump to GorillaCon and merch.</div>
+</section>
+
 <section class="catalog-grid">
   <div class="card panel">
     <h2>Cosmetic goal helper</h2>
-    <div class="muted">Pick a common goal price or creator badge note.</div>
+    <div class="muted">Browse Gorilla Tag Wiki cosmetic sections and pick a price goal.</div>
 
     <div class="form-grid" style="grid-template-columns: 1fr auto; align-items:end;">
       <div class="field">
@@ -616,27 +928,194 @@
   This is an unofficial fan-made tool and is not affiliated with Gorilla Tag, Another Axiom, Meta, or any official Gorilla Tag team.
 </div>
 
+  
+  <div class="gcon-surprise" id="gconSurprise">
+    <div class="gcon-surprise-card">
+      <div class="gcon-confetti">🎉 🦍 🎉</div>
+      <div class="gcon-surprise-title">GorillaCon 2026 has started!</div>
+      <div class="gcon-surprise-text">Find your friends. Become monke.</div>
+      <div class="gcon-surprise-actions">
+        <a class="btn btn-main" href="https://www.gorillatagvr.com/gorillacon-2026" target="_blank" rel="noopener">Open GorillaCon</a>
+        <button type="button" id="closeGconSurprise">Close</button>
+      </div>
+    </div>
+  </div>
+
   </main>
 
   <script>
-    const STORAGE_KEY = "gorilla-shiny-rox-web-v3-zero-start";
+    const STORAGE_KEY = "gorilla-shiny-rox-web-v7-gorillacon-countdown";
+
+    // Official GorillaCon 2026 starts June 25, 2026 in Anaheim, CA. Using 9:30 AM Pacific time to match the official event open time.
+    const GORILLACON_START = new Date("2026-06-25T09:30:00-07:00");
+
+    function updateGorillaConCountdown() {
+      const box = document.getElementById("gorillaConBox");
+      const daysEl = document.getElementById("gconDays");
+      const hoursEl = document.getElementById("gconHours");
+      const minutesEl = document.getElementById("gconMinutes");
+      const secondsEl = document.getElementById("gconSeconds");
+      const surprise = document.getElementById("gconSurprise");
+      if (!box || !daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+      const now = new Date();
+      let diff = GORILLACON_START.getTime() - now.getTime();
+
+      if (diff <= 0) {
+        daysEl.textContent = "00";
+        hoursEl.textContent = "00";
+        minutesEl.textContent = "00";
+        secondsEl.textContent = "00";
+
+        if (surprise && localStorage.getItem("gcon-surprise-closed") !== "yes") {
+          surprise.classList.add("show");
+        }
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      daysEl.textContent = String(days).padStart(2, "0");
+      hoursEl.textContent = String(hours).padStart(2, "0");
+      minutesEl.textContent = String(minutes).padStart(2, "0");
+      secondsEl.textContent = String(seconds).padStart(2, "0");
+    }
+
+      box.classList.remove("ended");
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      daysEl.textContent = String(days).padStart(2, "0");
+      hoursEl.textContent = String(hours).padStart(2, "0");
+      minutesEl.textContent = String(minutes).padStart(2, "0");
+      secondsEl.textContent = String(seconds).padStart(2, "0");
+    }
+
 
     const catalogItems = [
-      { name: "Free cosmetic", price: 0, note: "Free item" },
-      { name: "500 Shiny Rox goal", price: 500, note: "Common small cosmetic price" },
-      { name: "1,000 Shiny Rox goal", price: 1000, note: "Common cosmetic price" },
-      { name: "2,000 Shiny Rox goal", price: 2000, note: "Common cosmetic price" },
-      { name: "2,500 Shiny Rox goal", price: 2500, note: "Common cosmetic price" },
-      { name: "3,500 Shiny Rox goal", price: 3500, note: "Common cosmetic price" },
-      { name: "4,000 Shiny Rox goal", price: 4000, note: "Common cosmetic price" },
-      { name: "5,000 Shiny Rox goal", price: 5000, note: "Common cosmetic price" },
-      { name: "6,500 Shiny Rox goal", price: 6500, note: "Common cosmetic price" },
-      { name: "7,500 Shiny Rox goal", price: 7500, note: "Common cosmetic price" },
-      { name: "10,000 Shiny Rox goal", price: 10000, note: "Large cosmetic goal" },
-      { name: "11,400 Shiny Rox goal", price: 11400, note: "Large cosmetic goal" },
-      { name: "AA Creator Badge", price: null, note: "Creator-only badge, not buyable" },
-      { name: "Finger Painter Badge", price: null, note: "Creator-only badge, not buyable" },
-      { name: "Illustrator Badge", price: null, note: "Creator-only badge, not buyable" }
+      { name: "Creator Fest", price: -3, note: "Limited-time Creator Fest items", category: "Creator Fest" },
+      { name: "GorillaCon 2026 Website", price: null, note: "Official GorillaCon 2026 page", category: "Creator Fest", url: "https://www.gorillatagvr.com/gorillacon-2026" },
+      { name: "Gorilla Tag Merch", price: null, note: "Official Gorilla Tag merch shop", category: "Creator Fest", url: "https://shop.gorillatagvr.com/" },
+      { name: "Gorilla Con 2026 Ball", price: 0, note: "Creator Fest limited free cosmetic", category: "Creator Fest" },
+      { name: "Frank & Beans Badge", price: 0, note: "Creator Fest limited free cosmetic", category: "Creator Fest" },
+      { name: "Golden Monke Paw", price: 3000, note: "Creator Fest limited cosmetic", category: "Creator Fest" },
+      { name: "Golden Kazoo", price: 1500, note: "Creator Fest limited cosmetic", category: "Creator Fest" },
+      { name: "Aviators", price: 1000, note: "Original Cosmetics cosmetic", category: "Original Cosmetics" },
+      { name: "Banana Hat", price: 2000, note: "Original Cosmetics cosmetic", category: "Original Cosmetics" },
+      { name: "Cloche", price: 1000, note: "Original Cosmetics cosmetic", category: "Original Cosmetics" },
+      { name: "Coconut", price: 2000, note: "Original Cosmetics cosmetic", category: "Original Cosmetics" },
+      { name: "Cowboy Hat", price: 1000, note: "Original Cosmetics cosmetic", category: "Original Cosmetics" },
+      { name: "Fez", price: 1000, note: "Original Cosmetics cosmetic", category: "Original Cosmetics" },
+      { name: "Sunhat", price: 1000, note: "Original Cosmetics cosmetic", category: "Original Cosmetics" },
+      { name: "Tortoiseshell Sunglasses", price: 1000, note: "Original Cosmetics cosmetic", category: "Original Cosmetics" },
+      { name: "Top Hat", price: 1000, note: "Original Cosmetics cosmetic", category: "Original Cosmetics" },
+      { name: "Baseball Cap", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Basic Beanie", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Cat Ears", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Chefs Hat", price: 2500, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Flower Crown", price: 2000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Forehead Mirror", price: 2000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Golden Head", price: 5000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Headphones1", price: 2000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Party Hat", price: 500, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Pineapple Hat", price: 2000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Sweatband", price: 500, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Monke Cap", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Gorilla Face Cap", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Banana Logo Cap", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Ushanka", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "White Fedora", price: 1500, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Witch Hat", price: 1500, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Basic Earrings", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Basic Scarf", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Big Eyebrows", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Boxy Sunglasses", price: 2500, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Double Eyepatch", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Eyebrow Stud", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Goggles", price: 2000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Left Eyepatch", price: 500, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Nose Ring", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Right Eyepatch", price: 500, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Round Sunglasses", price: 1500, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Skull Mask", price: 2200, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Surgical Mask", price: 500, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Triangle Sunglasses", price: 2000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Bowtie", price: 500, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Canyon Pin", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "City Pin", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Crystals Pin", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Gorilla Pin", price: 2000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Mountain Pin", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Neck Scarf", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Tree Pin", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Banana Logo Tee", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "I Love GT Tee", price: 1000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Gorilla Tag Flag", price: 2000, note: "City Cosmetics (or Permanent) cosmetic", category: "City Cosmetics (or Permanent)" },
+      { name: "Star Balloon", price: 2000, note: "Balloon Cosmetics cosmetic", category: "Balloon Cosmetics" },
+      { name: "Diamond Balloon", price: 1500, note: "Balloon Cosmetics cosmetic", category: "Balloon Cosmetics" },
+      { name: "Chocolate Donut Balloon", price: 2500, note: "Balloon Cosmetics cosmetic", category: "Balloon Cosmetics" },
+      { name: "Heart Balloon", price: 1500, note: "Balloon Cosmetics cosmetic", category: "Balloon Cosmetics" },
+      { name: "Pink Donut Balloon", price: 2500, note: "Balloon Cosmetics cosmetic", category: "Balloon Cosmetics" },
+      { name: "Clown Set", price: 4500, note: "Halloween (2021) cosmetic", category: "Halloween (2021)" },
+      { name: "Mummy Wrap", price: 1500, note: "Halloween (2021) cosmetic", category: "Halloween (2021)" },
+      { name: "Paperbag Hat", price: 2000, note: "Halloween (2021) cosmetic", category: "Halloween (2021)" },
+      { name: "Pirate Bandana", price: 1500, note: "Halloween (2021) cosmetic", category: "Halloween (2021)" },
+      { name: "Pumpkin Hat", price: 2000, note: "Halloween (2021) cosmetic", category: "Halloween (2021)" },
+      { name: "Star Princess Set", price: 4500, note: "Halloween (2021) cosmetic", category: "Halloween (2021)" },
+      { name: "Vampire Set", price: 4500, note: "Halloween (2021) cosmetic", category: "Halloween (2021)" },
+      { name: "Werewolf Set", price: 4500, note: "Halloween (2021) cosmetic", category: "Halloween (2021)" },
+      { name: "Witch Nose", price: 1000, note: "Halloween (2021) cosmetic", category: "Halloween (2021)" },
+      { name: "Face Scarf", price: 2000, note: "Autumn (2021) cosmetic", category: "Autumn (2021)" },
+      { name: "Maple Leaf", price: 3000, note: "Autumn (2021) cosmetic", category: "Autumn (2021)" },
+      { name: "Turkey Finger Puppet", price: 4500, note: "Autumn (2021) cosmetic", category: "Autumn (2021)" },
+      { name: "Turkey Leg", price: 3500, note: "Autumn (2021) cosmetic", category: "Autumn (2021)" },
+      { name: "2022 Glasses", price: 1500, note: "Holiday (2021) cosmetic", category: "Holiday (2021)" },
+      { name: "Candy Cane", price: 4000, note: "Holiday (2021) cosmetic", category: "Holiday (2021)" },
+      { name: "Elf Hat", price: 2000, note: "Holiday (2021) cosmetic", category: "Holiday (2021)" },
+      { name: "Gift Hat", price: 2000, note: "Holiday (2021) cosmetic", category: "Holiday (2021)" },
+      { name: "Nose Snowflake", price: 2000, note: "Holiday (2021) cosmetic", category: "Holiday (2021)" },
+      { name: "Ornament Earrings", price: 2000, note: "Holiday (2021) cosmetic", category: "Holiday (2021)" },
+      { name: "Santa Set", price: 3000, note: "Holiday (2021) cosmetic", category: "Holiday (2021)" },
+      { name: "Snowman Hat", price: 3000, note: "Holiday (2021) cosmetic", category: "Holiday (2021)" },
+      { name: "Sparkler", price: 5000, note: "Holiday (2021) cosmetic", category: "Holiday (2021)" },
+      { name: "Black Earmuffs", price: 2000, note: "Winter (2022) cosmetic", category: "Winter (2022)" },
+      { name: "Blue Pompom Hat", price: 2500, note: "Winter (2022) cosmetic", category: "Winter (2022)" },
+      { name: "Green Earmuffs", price: 2000, note: "Winter (2022) cosmetic", category: "Winter (2022)" },
+      { name: "Icicle", price: 4500, note: "Winter (2022) cosmetic", category: "Winter (2022)" },
+      { name: "Orange Pompom Hat", price: 2500, note: "Winter (2022) cosmetic", category: "Winter (2022)" },
+      { name: "Pattern Pompom Hat", price: 2500, note: "Winter (2022) cosmetic", category: "Winter (2022)" },
+      { name: "Pink Earmuffs", price: 2000, note: "Winter (2022) cosmetic", category: "Winter (2022)" },
+      { name: "Rosy Cheeks", price: 2000, note: "Winter (2022) cosmetic", category: "Winter (2022)" },
+      { name: "Stripe Pompom Hat", price: 2500, note: "Winter (2022) cosmetic", category: "Winter (2022)" },
+      { name: "White Earmuffs", price: 2000, note: "Winter (2022) cosmetic", category: "Winter (2022)" },
+      { name: "Black Rose", price: 4000, note: "Valentines (2022) cosmetic", category: "Valentines (2022)" },
+      { name: "Box Of Chocolates Hat", price: 3000, note: "Valentines (2022) cosmetic", category: "Valentines (2022)" },
+      { name: "Chest Heart", price: 2000, note: "Valentines (2022) cosmetic", category: "Valentines (2022)" },
+      { name: "Gold Rose", price: 5000, note: "Valentines (2022) cosmetic", category: "Valentines (2022)" },
+      { name: "Heart Glasses", price: 2000, note: "Valentines (2022) cosmetic", category: "Valentines (2022)" },
+      { name: "Heart Pompom Hat", price: 2500, note: "Valentines (2022) cosmetic", category: "Valentines (2022)" },
+      { name: "Pink Rose", price: 4000, note: "Valentines (2022) cosmetic", category: "Valentines (2022)" },
+      { name: "Red Rose", price: 4000, note: "Valentines (2022) cosmetic", category: "Valentines (2022)" },
+      { name: "GT1 Badge", price: 0, note: "1st Anniversary (2022) free cosmetic", category: "1st Anniversary (2022)" },
+      { name: "Thumb Party Hats", price: 0, note: "1st Anniversary (2022) free cosmetic", category: "1st Anniversary (2022)" },
+      { name: "Cookie Jar", price: 3000, note: "Household (2022) cosmetic", category: "Household (2022)" },
+      { name: "Golden Utensils", price: 5000, note: "Household (2022) cosmetic", category: "Household (2022)" },
+      { name: "Golden Wrench", price: 4500, note: "Household (2022) cosmetic", category: "Household (2022)" },
+      { name: "Plunger", price: 2000, note: "Household (2022) cosmetic", category: "Household (2022)" },
+      { name: "Regular Utensils", price: 4500, note: "Household (2022) cosmetic", category: "Household (2022)" },
+      { name: "Regular Wrench", price: 4000, note: "Household (2022) cosmetic", category: "Household (2022)" },
+      { name: "Saucepan", price: 2500, note: "Household (2022) cosmetic", category: "Household (2022)" },
+      { name: "AA Creator Badge", price: null, note: "Creator-only badge, not buyable", category: "Creator Badges" },
+      { name: "Finger Painter Badge", price: null, note: "Creator-only badge, not buyable", category: "Creator Badges" },
+      { name: "Illustrator Badge", price: null, note: "Creator-only badge, not buyable", category: "Creator Badges" }
     ];
 
     const els = {
@@ -846,13 +1325,25 @@
     function renderCatalog() {
       const query = els.catalogSearch.value.trim().toLowerCase();
       const filtered = catalogItems.filter(item => {
-        const priceText = item.price === null ? "creator badge not buyable" : String(item.price);
+        const priceText = item.url ? "official link merch gorillacon website" : item.price === null ? "creator badge not buyable" : item.price < 0 ? "section limited" : String(item.price);
         return (item.name + " " + item.note + " " + priceText).toLowerCase().includes(query);
       });
 
       els.catalogList.innerHTML = "";
 
+      let lastCategory = "";
+
       filtered.forEach(item => {
+        const category = item.category || "Common Goals";
+
+        if (category !== lastCategory) {
+          const heading = document.createElement("div");
+          heading.className = "catalog-section-heading";
+          heading.textContent = category;
+          els.catalogList.appendChild(heading);
+          lastCategory = category;
+        }
+
         const row = document.createElement("div");
         row.className = "catalog-item";
 
@@ -862,7 +1353,11 @@
         title.textContent = item.name;
 
         const note = document.createElement("span");
-        note.textContent = item.price === null
+        note.textContent = item.url
+          ? item.note
+          : item.price < 0
+          ? item.note
+          : item.price === null
           ? item.note
           : item.note + " • " + formatNumber(item.price) + " Shiny Rox";
 
@@ -871,7 +1366,23 @@
 
         const button = document.createElement("button");
 
-        if (item.price === null) {
+        if (item.url) {
+          button.textContent = "Open";
+          button.addEventListener("click", () => {
+            window.open(item.url, "_blank", "noopener");
+          });
+        } else if (item.price < 0) {
+          button.textContent = "Limited";
+          button.disabled = true;
+        } else if (item.url) {
+          button.textContent = "Open";
+          button.addEventListener("click", () => {
+            window.open(item.url, "_blank", "noopener");
+          });
+        } else if (item.price < 0) {
+          button.textContent = "Limited";
+          button.disabled = true;
+        } else if (item.price === null) {
           button.textContent = "Not buyable";
           button.disabled = true;
         } else {
@@ -932,6 +1443,18 @@
         calculate();
       });
     });
+
+    const closeGconSurprise = document.getElementById("closeGconSurprise");
+    if (closeGconSurprise) {
+      closeGconSurprise.addEventListener("click", () => {
+        const surprise = document.getElementById("gconSurprise");
+        if (surprise) surprise.classList.remove("show");
+        localStorage.setItem("gcon-surprise-closed", "yes");
+      });
+    }
+
+    updateGorillaConCountdown();
+    setInterval(updateGorillaConCountdown, 1000);
 
     loadState();
     renderCatalog();
