@@ -344,7 +344,7 @@
 
     .catalog-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 18px;
       margin-bottom: 18px;
     }
@@ -438,270 +438,12 @@
         padding: 18px;
       }
     }
-  
-
-    .gorillacon-wrap {
-      margin-top: 22px;
-      margin-bottom: 22px;
-      padding: 20px;
-      border: 2px solid rgba(255, 199, 0, 0.9);
-      border-radius: 18px;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04), transparent 18%),
-        radial-gradient(circle at 80% 35%, rgba(255,255,255,0.03), transparent 22%),
-        radial-gradient(circle at 45% 80%, rgba(255,255,255,0.025), transparent 16%),
-        linear-gradient(180deg, rgba(73,102,97,0.95), rgba(63,90,86,0.96));
-      position: relative;
-      overflow: hidden;
-    }
-
-    .gorillacon-wrap::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at top right, rgba(255,255,255,0.05), transparent 30%);
-    }
-
-    .gorillacon-heading {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      color: #ffc700;
-      font-size: clamp(28px, 4vw, 56px);
-      letter-spacing: 0.08em;
-      line-height: 1;
-      text-transform: uppercase;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.35);
-      margin-bottom: 22px;
-    }
-
-    .gorillacon-heading .icon {
-      font-size: clamp(28px, 4vw, 54px);
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
-    }
-
-    .gorillacon-sub {
-      margin-top: -4px;
-      margin-bottom: 20px;
-      color: rgba(255,255,255,0.82);
-      font-size: 14px;
-    }
-
-    .gorillacon-countdown {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(110px, 1fr));
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-
-    .gcon-tile {
-      background: rgba(7, 22, 30, 0.95);
-      border-radius: 22px;
-      min-height: 170px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 18px 30px rgba(0,0,0,0.18);
-      transform: rotate(-3deg);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .gcon-tile:nth-child(2) { transform: rotate(2deg); }
-    .gcon-tile:nth-child(3) { transform: rotate(-2deg); }
-    .gcon-tile:nth-child(4) { transform: rotate(3deg); }
-
-    .gcon-tile.yellow { border: 5px solid #ffcc00; }
-    .gcon-tile.orange { border: 5px solid #ff5f24; }
-    .gcon-tile.white { border: 5px solid #dcece4; }
-    .gcon-tile.cream { border: 5px solid #ebe2ae; }
-
-    .gcon-number {
-      font-size: clamp(40px, 5.4vw, 78px);
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      color: #f7ebef;
-      line-height: 0.95;
-    }
-
-    .gcon-label {
-      margin-top: 16px;
-      font-size: 18px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.92);
-    }
-
-    .gcon-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-top: 10px;
-    }
-
-    .gcon-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 190px;
-      padding: 14px 18px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      transition: transform 0.15s ease, opacity 0.15s ease;
-    }
-
-    .gcon-links a:hover { transform: translateY(-1px); opacity: 0.96; }
-
-    .gcon-primary {
-      background: #ffcc00;
-      color: #10151f;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-    }
-
-    .gcon-secondary {
-      background: rgba(7,22,30,0.95);
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-
-    .gcon-limited {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 14px;
-      color: #ffd36a;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-
-    .gorillacon-wrap.ended .gorillacon-countdown {
-      display: none;
-    }
-
-    .gcon-ended-message {
-      display: none;
-      background: rgba(7, 22, 30, 0.95);
-      border: 2px solid #ffcc00;
-      border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 18px;
-      color: #ffffff;
-      font-size: clamp(24px, 4vw, 42px);
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    .gorillacon-wrap.ended .gcon-ended-message {
-      display: block;
-    }
-
-    .gcon-meta {
-      margin-top: 8px;
-      color: rgba(255,255,255,0.8);
-      font-size: 13px;
-    }
-
-    @media (max-width: 900px) {
-      .gorillacon-countdown {
-        grid-template-columns: repeat(2, minmax(120px, 1fr));
-      }
-      .gcon-tile { min-height: 150px; }
-    }
-
-    @media (max-width: 560px) {
-      .gorillacon-countdown {
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
-      .gorillacon-wrap { padding: 16px; }
-      .gorillacon-heading { gap: 10px; }
-      .gcon-links a { width: 100%; }
-    }
-
-  
-    .gorillacon-wrap.ended .gorillacon-countdown {
-      display: grid;
-    }
-
-    .gorillacon-wrap.ended .gcon-ended-message {
-      display: none;
-    }
-
-    .gcon-surprise {
-      position: fixed;
-      inset: 0;
-      background: rgba(3, 10, 14, 0.78);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      padding: 18px;
-    }
-
-    .gcon-surprise.show {
-      display: flex;
-    }
-
-    .gcon-surprise-card {
-      width: min(720px, 94vw);
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255, 204, 0, 0.18), transparent 28%),
-        radial-gradient(circle at 80% 30%, rgba(255, 91, 36, 0.18), transparent 28%),
-        #071c20;
-      border: 3px solid #ffcc00;
-      border-radius: 22px;
-      padding: 34px 26px;
-      text-align: center;
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.48);
-      color: #ffffff;
-      transform: rotate(-1deg);
-    }
-
-    .gcon-surprise-title {
-      color: #ffcc00;
-      font-size: clamp(34px, 6vw, 70px);
-      line-height: 0.95;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      text-shadow: 0 4px 8px rgba(0,0,0,0.35);
-      margin-bottom: 16px;
-    }
-
-    .gcon-surprise-text {
-      color: #fff0f3;
-      font-size: clamp(18px, 2.4vw, 28px);
-      font-weight: 800;
-      margin-bottom: 22px;
-    }
-
-    .gcon-confetti {
-      font-size: clamp(26px, 5vw, 52px);
-      margin-bottom: 14px;
-      letter-spacing: 0.25em;
-    }
-
-    .gcon-surprise-actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .gcon-surprise-actions a,
-    .gcon-surprise-actions button {
-      min-width: 160px;
-    }
+    
+    .hero { align-items: center; }
+    .catalog-grid { margin-top: 6px; }
+    .catalog-list { max-height: 560px; }
+    .catalog-item { padding: 14px; }
+    .footer { max-width: 820px; margin: 0 auto; }
 
   </style>
 
@@ -712,7 +454,7 @@
     <div class="top">
       <div>
         <div class="brand-title">Gorilla Shiny Rox</div>
-        <div class="brand-subtitle">Track your Shiny Rox and see when you can buy your next cosmetic.</div>
+        <div class="brand-subtitle">Track Shiny Rox, goals, and cosmetic prices.</div>
       </div>
 
   <div class="top-actions">
@@ -729,8 +471,8 @@
     <h1>Track your <span class="purple">Shiny Rox</span>.</h1>
 
     <p class="muted">
-      Enter your current Shiny Rox, the real in-game reward timer, and your cosmetic goal.
-      The website will estimate when you can afford it.
+      Enter your Shiny Rox, timer, and cosmetic goal.
+      The tracker estimates when you can afford it.
     </p>
 
     <div class="buttons">
@@ -779,7 +521,7 @@
 <section class="main-grid">
   <div class="card panel">
     <h2>Shiny Rox setup</h2>
-    <div class="muted">Use the values shown in Gorilla Tag.</div>
+    <div class="muted">Enter the numbers from Gorilla Tag.</div>
 
     <div class="form-grid">
       <div class="field">
@@ -822,7 +564,7 @@
 
   <div class="card panel">
     <h2>Actions</h2>
-    <div class="muted">Presets help if you do not know what to enter.</div>
+    <div class="muted">Quick setup buttons.</div>
 
     <h3>Quick presets</h3>
 
@@ -858,47 +600,10 @@
 </section>
 
 
-<section class="gorillacon-wrap" id="gorillaConBox">
-  <div class="gorillacon-heading"><span class="icon">⏰</span><span>Countdown to GorillaCon</span></div>
-  <div class="gorillacon-sub">Live countdown using the official GorillaCon 2026 event date.</div>
-
-  <div class="gcon-ended-message" id="gconEndedMessage">
-    GorillaCon is live!
-  </div>
-
-  <div class="gorillacon-countdown" id="gorillaConCountdown">
-    <div class="gcon-tile yellow">
-      <div class="gcon-number" id="gconDays">00</div>
-      <div class="gcon-label">Days</div>
-    </div>
-    <div class="gcon-tile orange">
-      <div class="gcon-number" id="gconHours">00</div>
-      <div class="gcon-label">Hrs</div>
-    </div>
-    <div class="gcon-tile white">
-      <div class="gcon-number" id="gconMinutes">00</div>
-      <div class="gcon-label">Min</div>
-    </div>
-    <div class="gcon-tile cream">
-      <div class="gcon-number" id="gconSeconds">00</div>
-      <div class="gcon-label">Sec</div>
-    </div>
-  </div>
-
-  <div class="gcon-links">
-    <a class="gcon-primary" href="https://www.gorillatagvr.com/gorillacon-2026" target="_blank" rel="noopener">Open GorillaCon 2026</a>
-    <a class="gcon-secondary" href="https://shop.gorillatagvr.com/" target="_blank" rel="noopener">Open Gorilla Tag Merch</a>
-  </div>
-
-  <div class="gcon-limited">★ Creator Fest is limited-time</div>
-  <div class="gcon-meta">Synced to GorillaCon 2026: June 25, 2026 at 6:30 AM Pacific time.</div>
-  <div class="gcon-meta">This section is placed above Cosmetic goal helper so people can quickly jump to GorillaCon and merch.</div>
-</section>
-
 <section class="catalog-grid">
   <div class="card panel">
-    <h2>Cosmetic goal helper</h2>
-    <div class="muted">Browse Gorilla Tag Wiki cosmetic sections and pick a price goal.</div>
+    <h2>Cosmetic Catalog</h2>
+    <div class="muted">Search cosmetics and choose a Shiny Rox goal.</div>
 
     <div class="form-grid" style="grid-template-columns: 1fr auto; align-items:end;">
       <div class="field">
@@ -906,7 +611,7 @@
         <input id="catalogSearch" type="text" placeholder="Search price, free, badge..." />
       </div>
 
-      <button type="button" id="loadCatalogBtn">Load Catalog</button>
+      <button type="button" id="loadCatalogBtn">Refresh</button>
     </div>
 
     <div class="catalog-list" id="catalogList">
@@ -1039,79 +744,17 @@
         <div class="catalog-item"><div><strong>Illustrator Badge</strong><span>Creator-only badge, not buyable</span></div><button type="button" disabled>Not buyable</button></div>
       </div>
   </div>
-
-  <div class="card panel">
-    <h2>Safety & beta notes</h2>
-    <ul class="muted">
-      <li>No Gorilla Tag login needed.</li>
-      <li>No account connection.</li>
-      <li>Uses only numbers you type manually.</li>
-      <li>Cosmetic images are not included in this beta for stability.</li>
-      <li>Always check the in-game shop before buying.</li>
-    </ul>
-  </div>
 </section>
 
 <div class="footer">
   This is an unofficial fan-made tool and is not affiliated with Gorilla Tag, Another Axiom, Meta, or any official Gorilla Tag team.
 </div>
-
-  
-  <div class="gcon-surprise" id="gconSurprise">
-    <div class="gcon-surprise-card">
-      <div class="gcon-confetti">🎉 🦍 🎉</div>
-      <div class="gcon-surprise-title">GorillaCon 2026 has started!</div>
-      <div class="gcon-surprise-text">Find your friends. Become monke.</div>
-      <div class="gcon-surprise-actions">
-        <a class="btn btn-main" href="https://www.gorillatagvr.com/gorillacon-2026" target="_blank" rel="noopener">Open GorillaCon</a>
-        <button type="button" id="closeGconSurprise">Close</button>
-      </div>
-    </div>
-  </div>
+</div>
 
   </main>
 
   <script>
-    const STORAGE_KEY = "gorilla-shiny-rox-web-v8-zero-defaults";
-
-    // Official GorillaCon 2026 starts June 25, 2026 in Anaheim, CA. Using 6:30 AM Pacific time to better match the official GorillaCon website countdown.
-    const GORILLACON_START = new Date("2026-06-25T06:30:00-07:00");
-
-    function updateGorillaConCountdown() {
-      const box = document.getElementById("gorillaConBox");
-      const daysEl = document.getElementById("gconDays");
-      const hoursEl = document.getElementById("gconHours");
-      const minutesEl = document.getElementById("gconMinutes");
-      const secondsEl = document.getElementById("gconSeconds");
-      const surprise = document.getElementById("gconSurprise");
-      if (!box || !daysEl || !hoursEl || !minutesEl || !secondsEl) return;
-
-      const now = new Date();
-      let diff = GORILLACON_START.getTime() - now.getTime();
-
-      if (diff <= 0) {
-        daysEl.textContent = "00";
-        hoursEl.textContent = "00";
-        minutesEl.textContent = "00";
-        secondsEl.textContent = "00";
-
-        if (surprise && localStorage.getItem("gcon-surprise-closed") !== "yes") {
-          surprise.classList.add("show");
-        }
-        return;
-      }
-
-      const totalSeconds = Math.floor(diff / 1000);
-      const days = Math.floor(totalSeconds / 86400);
-      const hours = Math.floor((totalSeconds % 86400) / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
-
-      daysEl.textContent = String(days).padStart(2, "0");
-      hoursEl.textContent = String(hours).padStart(2, "0");
-      minutesEl.textContent = String(minutes).padStart(2, "0");
-      secondsEl.textContent = String(seconds).padStart(2, "0");
-    }
+    const STORAGE_KEY = "gorilla-shiny-rox-web-v9-clean-layout";
 
     const catalogItems = [
       { name: "Creator Fest", price: -3, note: "Limited-time Creator Fest items", category: "Creator Fest" },
@@ -1566,32 +1209,6 @@
         calculate();
       });
     });
-
-    const closeGconSurprise = document.getElementById("closeGconSurprise");
-    if (closeGconSurprise) {
-      closeGconSurprise.addEventListener("click", () => {
-        const surprise = document.getElementById("gconSurprise");
-        if (surprise) surprise.classList.remove("show");
-        localStorage.setItem("gcon-surprise-closed", "yes");
-      });
-    }
-
-
-    function bootCatalogAndCountdown() {
-      try {
-        updateGorillaConCountdown();
-        renderCatalog();
-        calculate();
-      } catch (err) {
-        console.error("Gorilla Shiny Rox startup error:", err);
-      }
-    }
-
-    window.addEventListener("load", bootCatalogAndCountdown);
-
-    updateGorillaConCountdown();
-    setInterval(updateGorillaConCountdown, 1000);
-
     loadState();
     resetOldDemoDefaults();
     renderCatalog();
