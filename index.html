@@ -909,7 +909,7 @@
       <button type="button" id="loadCatalogBtn">Load Catalog</button>
     </div>
 
-    <div class="catalog-list" id="catalogList"></div>
+    <div class="catalog-list" id="catalogList"><div class="muted">Loading cosmetic catalog...</div></div>
   </div>
 
   <div class="card panel">
@@ -984,21 +984,6 @@
       minutesEl.textContent = String(minutes).padStart(2, "0");
       secondsEl.textContent = String(seconds).padStart(2, "0");
     }
-
-      box.classList.remove("ended");
-
-      const totalSeconds = Math.floor(diff / 1000);
-      const days = Math.floor(totalSeconds / 86400);
-      const hours = Math.floor((totalSeconds % 86400) / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
-
-      daysEl.textContent = String(days).padStart(2, "0");
-      hoursEl.textContent = String(hours).padStart(2, "0");
-      minutesEl.textContent = String(minutes).padStart(2, "0");
-      secondsEl.textContent = String(seconds).padStart(2, "0");
-    }
-
 
     const catalogItems = [
       { name: "Creator Fest", price: -3, note: "Limited-time Creator Fest items", category: "Creator Fest" },
@@ -1333,6 +1318,11 @@
 
       let lastCategory = "";
 
+      if (filtered.length === 0) {
+        els.catalogList.innerHTML = '<div class="muted">No cosmetic found. Try another search.</div>';
+        return;
+      }
+
       filtered.forEach(item => {
         const category = item.category || "Common Goals";
 
@@ -1367,14 +1357,6 @@
         const button = document.createElement("button");
 
         if (item.url) {
-          button.textContent = "Open";
-          button.addEventListener("click", () => {
-            window.open(item.url, "_blank", "noopener");
-          });
-        } else if (item.price < 0) {
-          button.textContent = "Limited";
-          button.disabled = true;
-        } else if (item.url) {
           button.textContent = "Open";
           button.addEventListener("click", () => {
             window.open(item.url, "_blank", "noopener");
