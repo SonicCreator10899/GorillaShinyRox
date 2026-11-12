@@ -14,14 +14,33 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #07110f;
+      background:
+        radial-gradient(circle at top left, rgba(255, 187, 92, 0.12), transparent 24%),
+        radial-gradient(circle at top right, rgba(209, 56, 74, 0.10), transparent 22%),
+        linear-gradient(180deg, #120d0a 0%, #0a1513 38%, #07110f 100%);
       color: #f4f6ff;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 204, 0, 0.10), transparent 0 12%),
+        radial-gradient(circle at 88% 14%, rgba(221, 67, 85, 0.08), transparent 0 11%),
+        radial-gradient(circle at 18% 80%, rgba(83, 150, 101, 0.09), transparent 0 14%),
+        radial-gradient(circle at 82% 78%, rgba(255, 255, 255, 0.04), transparent 0 10%);
+      z-index: 0;
     }
 
     .page {
       max-width: 1220px;
       margin: 0 auto;
       padding: 28px 20px 42px;
+      position: relative;
+      z-index: 1;
     }
 
     .top {
@@ -52,8 +71,8 @@
     }
 
     .top-pill {
-      background: #101d1a;
-      border: 1px solid #365b50;
+      background: linear-gradient(180deg, #1d1812, #12201c);
+      border: 1px solid #6a5a37;
       border-radius: 14px;
       padding: 10px 14px;
       text-align: center;
@@ -68,10 +87,10 @@
     }
 
     .card {
-      background: #101d1a;
-      border: 1px solid #365b50;
+      background: linear-gradient(180deg, rgba(21, 28, 24, 0.98), rgba(12, 24, 21, 0.98));
+      border: 1px solid #4d6a5f;
       border-radius: 18px;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.30);
     }
 
     .hero {
@@ -444,17 +463,26 @@
     .catalog-list { max-height: 560px; }
     .catalog-item { padding: 14px; }
     .footer { max-width: 820px; margin: 0 auto; }
+    .reward-schedule { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; margin-top:15px; }
+    .reward-row { border:1px solid #365b50; background:#091411; padding:15px; border-radius:12px; }
+    .reward-row b { display:block; color:#ffcc00; margin-bottom:6px; }
+    .reward-row span { color:#f4f6ff; font-size:14px; }
+    .reward-row small { display:block; color:#aeb8d1; margin-top:6px; }
+    .reward-row.goal-reached { border-color:#ffcc00; }
+    button:focus-visible, a:focus-visible { outline:2px solid #ffcc00; outline-offset:3px; }
+
 
   
     .gt-style-strip {
       margin: 0 0 18px;
       padding: 18px 20px;
-      border: 1px solid #446b5e;
+      border: 1px solid #5b6044;
       border-radius: 18px;
       background:
-        radial-gradient(circle at 8% 30%, rgba(255, 204, 0, 0.14), transparent 18%),
-        radial-gradient(circle at 92% 60%, rgba(47, 120, 89, 0.28), transparent 22%),
-        linear-gradient(135deg, #0b1715, #123229 55%, #0b1715);
+        radial-gradient(circle at 10% 28%, rgba(255, 200, 95, 0.17), transparent 18%),
+        radial-gradient(circle at 90% 22%, rgba(189, 52, 70, 0.18), transparent 18%),
+        radial-gradient(circle at 86% 74%, rgba(57, 113, 78, 0.25), transparent 22%),
+        linear-gradient(135deg, #17110c, #2a2015 40%, #11251f 74%, #0b1715);
       box-shadow: 0 14px 38px rgba(0,0,0,0.24);
       overflow: hidden;
       position: relative;
@@ -527,6 +555,44 @@
       }
     }
 
+
+    .holiday-strip::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent 0 7%, rgba(255,255,255,0.05) 7% 8%, transparent 8% 20%),
+        linear-gradient(135deg, transparent 0 60%, rgba(255, 204, 0, 0.06) 60% 63%, transparent 63%),
+        linear-gradient(315deg, transparent 0 74%, rgba(209,56,74,0.08) 74% 76%, transparent 76%);
+      pointer-events: none;
+    }
+
+    .holiday-note {
+      color: #e8d6a7;
+    }
+
+    .ready {
+      background: linear-gradient(180deg, #21372b, #1b2f25);
+      border: 1px solid rgba(255, 204, 0, 0.18);
+    }
+
+    .summary-box {
+      background: linear-gradient(180deg, #0f1814, #0b1411);
+      border: 1px solid #355449;
+    }
+
+    .status, .tips-box, .catalog-item {
+      background: linear-gradient(180deg, #0c1714, #0a1311);
+    }
+
+    .brand-title {
+      text-shadow: 0 0 18px rgba(255, 204, 0, 0.12);
+    }
+
+    .brand-subtitle {
+      color: #d2c49a;
+    }
+
   </style>
 
 </head>
@@ -536,7 +602,7 @@
     <div class="top">
       <div>
         <div class="brand-title">Gorilla Shiny Rox</div>
-        <div class="brand-subtitle">Gorilla Tag cosmetic tracker.</div>
+        <div class="brand-subtitle">Gorilla Tag cosmetic tracker • Holiday season theme.</div>
       </div>
 
   <div class="top-actions">
@@ -550,11 +616,11 @@
 
 <section class="hero card">
   <div>
-    <h1>Track your <span class="purple">Shiny Rox</span>.</h1>
+    <h1>Track your <span class="purple">Shiny Rox</span> this season.</h1>
 
     <p class="muted">
       Enter your Shiny Rox, reward timer, and cosmetic goal.
-      The tracker estimates when you can afford your next item.
+      The tracker estimates when you can afford your next item with a cozy Thanksgiving-to-Christmas look.
     </p>
 
     <div class="buttons">
@@ -601,16 +667,16 @@
 </section>
 
 
-<section class="gt-style-strip">
+<section class="gt-style-strip holiday-strip">
   <div class="gt-style-content">
     <div>
-      <div class="gt-style-title">Gorilla Tag <span>cosmetic tracker</span></div>
-      <div class="gt-style-text">Clean tracker, cosmetic catalog, Creator Fest links, and no extra clutter.</div>
+      <div class="gt-style-title">Holiday <span>Shiny Rox grind</span></div>
+      <div class="gt-style-text">A warm seasonal theme for Thanksgiving and Christmas while you track rewards, plan cosmetic purchases, and see when you can afford them.</div>
     </div>
     <div class="gt-style-tags">
-      <span class="gt-style-tag">Shiny Rox</span>
-      <span class="gt-style-tag">Cosmetics</span>
-      <span class="gt-style-tag">Creator Fest</span>
+      <span class="gt-style-tag">🍁 Thanksgiving</span>
+      <span class="gt-style-tag">🎄 Christmas</span>
+      <span class="gt-style-tag">🎁 Cozy Theme</span>
     </div>
   </div>
 </section>
@@ -642,7 +708,7 @@
       <div class="field">
         <label for="repeatHours">How often does it repeat?</label>
         <input id="repeatHours" type="number" min="1" value="24" />
-        <div class="hint">Daily = 24. Every 100 hours = 100.</div>
+        <div class="hint">Daily = 24 hours. Match the reward cycle shown in-game.</div>
       </div>
 
       <div class="field">
@@ -677,6 +743,7 @@
       <button type="button" id="saveBtn">Save</button>
       <button type="button" id="addRewardBtn">Add Reward</button>
       <button type="button" class="danger" id="resetBtn">Reset Timer</button>
+      <button type="button" id="resetAllBtn">Reset Everything</button>
     </div>
 
     <div class="status" id="statusBox">
@@ -697,10 +764,16 @@
 </section>
 
 
+<section class="card panel" style="margin-bottom:18px" aria-label="Upcoming Shiny Rox dates">
+    <h2>Upcoming Shiny Rox dates</h2>
+    <p class="muted" style="margin-top:0">See exactly when your next rewards are expected. Predictions use the timer you entered; your balance only changes when you confirm a reward.</p>
+    <div id="rewardSchedule" class="reward-schedule" aria-live="polite">Set your timer to see reward dates.</div>
+  </section>
+
 <section class="catalog-grid">
   <div class="card panel">
     <h2>Cosmetic Catalog</h2>
-    <div class="muted">Search cosmetics and choose a Shiny Rox goal.</div>
+    <div class="muted">Search cosmetics and choose a Shiny Rox goal. Item prices may change; check in-game.</div>
 
     <div class="form-grid" style="grid-template-columns: 1fr auto; align-items:end;">
       <div class="field">
@@ -712,14 +785,6 @@
     </div>
 
     <div class="catalog-list" id="catalogList">
-        <div class="catalog-section-heading">Creator Fest</div>
-        <div class="catalog-item"><div><strong>Creator Fest</strong><span>Limited-time Creator Fest items</span></div><button type="button" disabled>Limited</button></div>
-        <div class="catalog-item"><div><strong>GorillaCon 2026 Website</strong><span>Official GorillaCon 2026 page</span></div><button type="button">Open</button></div>
-        <div class="catalog-item"><div><strong>Gorilla Tag Merch</strong><span>Official Gorilla Tag merch shop</span></div><button type="button">Open</button></div>
-        <div class="catalog-item"><div><strong>Gorilla Con 2026 Ball</strong><span>Creator Fest limited free cosmetic • Free</span></div><button type="button">Use price</button></div>
-        <div class="catalog-item"><div><strong>Frank &amp; Beans Badge</strong><span>Creator Fest limited free cosmetic • Free</span></div><button type="button">Use price</button></div>
-        <div class="catalog-item"><div><strong>Golden Monke Paw</strong><span>Creator Fest limited cosmetic • 3,000 Shiny Rox</span></div><button type="button">Use price</button></div>
-        <div class="catalog-item"><div><strong>Golden Kazoo</strong><span>Creator Fest limited cosmetic • 1,500 Shiny Rox</span></div><button type="button">Use price</button></div>
         <div class="catalog-section-heading">Original Cosmetics</div>
         <div class="catalog-item"><div><strong>Aviators</strong><span>Original Cosmetics cosmetic • 1,000 Shiny Rox</span></div><button type="button">Use price</button></div>
         <div class="catalog-item"><div><strong>Banana Hat</strong><span>Original Cosmetics cosmetic • 2,000 Shiny Rox</span></div><button type="button">Use price</button></div>
@@ -851,16 +916,9 @@
   </main>
 
   <script>
-    const STORAGE_KEY = "gorilla-shiny-rox-web-v9-clean-layout";
+    const STORAGE_KEY = "gorilla-shiny-rox-web-v9-clean-layout"; // Keep existing saved settings
 
     const catalogItems = [
-      { name: "Creator Fest", price: -3, note: "Limited-time Creator Fest items", category: "Creator Fest" },
-      { name: "GorillaCon 2026 Website", price: null, note: "Official GorillaCon 2026 page", category: "Creator Fest", url: "https://www.gorillatagvr.com/gorillacon-2026" },
-      { name: "Gorilla Tag Merch", price: null, note: "Official Gorilla Tag merch shop", category: "Creator Fest", url: "https://shop.gorillatagvr.com/" },
-      { name: "Gorilla Con 2026 Ball", price: 0, note: "Creator Fest limited free cosmetic", category: "Creator Fest" },
-      { name: "Frank & Beans Badge", price: 0, note: "Creator Fest limited free cosmetic", category: "Creator Fest" },
-      { name: "Golden Monke Paw", price: 3000, note: "Creator Fest limited cosmetic", category: "Creator Fest" },
-      { name: "Golden Kazoo", price: 1500, note: "Creator Fest limited cosmetic", category: "Creator Fest" },
       { name: "Aviators", price: 1000, note: "Original Cosmetics cosmetic", category: "Original Cosmetics" },
       { name: "Banana Hat", price: 2000, note: "Original Cosmetics cosmetic", category: "Original Cosmetics" },
       { name: "Cloche", price: 1000, note: "Original Cosmetics cosmetic", category: "Original Cosmetics" },
@@ -988,177 +1046,171 @@
       statusBox: document.getElementById("statusBox"),
       tipsBox: document.getElementById("tipsBox"),
       catalogList: document.getElementById("catalogList"),
-      catalogSearch: document.getElementById("catalogSearch")
+      catalogSearch: document.getElementById("catalogSearch"),
+      rewardSchedule: document.getElementById("rewardSchedule")
     };
 
     let nextRewardAt = null;
-
-
-    function resetOldDemoDefaults() {
-      const current = Number(els.currentRox.value);
-      const goal = Number(els.goalPrice.value);
-
-      if ((current === 3500 && goal === 500) || (current === 3500 && goal === 11400)) {
-        els.currentRox.value = 0;
-        els.goalPrice.value = 0;
-        nextRewardAt = null;
-        localStorage.removeItem(STORAGE_KEY);
-      }
-    }
+    const HOUR = 3600000;
+    const MINUTE = 60000;
 
     function numberValue(el, fallback = 0) {
       const value = Number(el.value);
       return Number.isFinite(value) && value >= 0 ? value : fallback;
     }
 
-    function formatNumber(value) {
-      return Math.round(value).toLocaleString();
-    }
+    function formatNumber(value) { return Math.round(value).toLocaleString(); }
 
     function formatDuration(ms) {
-      if (!nextRewardAt || ms <= 0) return "00:00:00";
-
-      const totalSeconds = Math.floor(ms / 1000);
-      const hours = Math.floor(totalSeconds / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
-
+      if (ms === null) return "--:--:--";
+      const seconds = Math.max(0, Math.ceil(ms / 1000));
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
       return String(hours).padStart(2, "0") + ":" +
              String(minutes).padStart(2, "0") + ":" +
-             String(seconds).padStart(2, "0");
+             String(seconds % 60).padStart(2, "0");
     }
 
     function formatDate(date) {
-      return date.toLocaleString([], {
-        month: "short",
-        day: "numeric",
-        hour: "numeric",
-        minute: "2-digit"
+      return date.toLocaleString(undefined, {
+        weekday:"short", month:"short", day:"numeric", year:"numeric",
+        hour:"numeric", minute:"2-digit"
       });
     }
 
+    function repeatMs() { return Math.max(1, numberValue(els.repeatHours, 24)) * HOUR; }
+    function rewardSize() { return Math.max(1, numberValue(els.rewardAmount, 100)); }
+
     function saveState() {
       const state = {
-        currentRox: numberValue(els.currentRox, 0),
-        goalPrice: numberValue(els.goalPrice, 0),
-        rewardAmount: Math.max(1, numberValue(els.rewardAmount, 100)),
-        repeatHours: Math.max(1, numberValue(els.repeatHours, 24)),
-        nextHours: numberValue(els.nextHours, 0),
-        nextMinutes: numberValue(els.nextMinutes, 0),
-        nextRewardAt: nextRewardAt
+        currentRox: numberValue(els.currentRox), goalPrice: numberValue(els.goalPrice),
+        rewardAmount: rewardSize(), repeatHours: numberValue(els.repeatHours,24),
+        nextHours: numberValue(els.nextHours), nextMinutes: numberValue(els.nextMinutes),
+        nextRewardAt
       };
-
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+      catch (error) { console.warn("Browser storage unavailable:", error); }
     }
 
     function loadState() {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (!saved) return;
-
       try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) return;
         const state = JSON.parse(saved);
-
-        if (state.currentRox !== undefined) els.currentRox.value = state.currentRox;
-        if (state.goalPrice !== undefined) els.goalPrice.value = state.goalPrice;
-        if (state.rewardAmount !== undefined) els.rewardAmount.value = state.rewardAmount;
-        if (state.repeatHours !== undefined) els.repeatHours.value = state.repeatHours;
-        if (state.nextHours !== undefined) els.nextHours.value = state.nextHours;
-        if (state.nextMinutes !== undefined) els.nextMinutes.value = state.nextMinutes;
-        if (state.nextRewardAt) nextRewardAt = Number(state.nextRewardAt);
-      } catch {
-        localStorage.removeItem(STORAGE_KEY);
-      }
+        for (const key of ["currentRox", "goalPrice", "rewardAmount", "repeatHours", "nextHours", "nextMinutes"]) {
+          if (state[key] !== undefined && Number.isFinite(Number(state[key])) && Number(state[key]) >= 0) els[key].value = state[key];
+        }
+        if (Number.isFinite(Number(state.nextRewardAt)) && Number(state.nextRewardAt) > 0) {
+          nextRewardAt = Number(state.nextRewardAt);
+        }
+      } catch (error) { console.warn("Could not restore tracker settings:", error); }
     }
 
-    function advancePastRewards() {
-      if (!nextRewardAt) return;
+    // Advance the CLOCK, not the user's in-game balance: the website cannot verify payouts.
+    function advanceClock() {
+      if (nextRewardAt === null || nextRewardAt > Date.now()) return;
+      const elapsed = Date.now() - nextRewardAt;
+      const cycles = Math.floor(elapsed / repeatMs()) + 1;
+      nextRewardAt += cycles * repeatMs();
+      saveState();
+    }
 
-      const now = Date.now();
-      const repeatMs = Math.max(1, numberValue(els.repeatHours, 24)) * 60 * 60 * 1000;
-      const reward = Math.max(1, numberValue(els.rewardAmount, 100));
-      let current = numberValue(els.currentRox, 0);
-      let changed = false;
+    function showStatus(title, body) {
+      els.statusBox.replaceChildren();
+      const heading = document.createElement("strong");
+      heading.textContent = title;
+      els.statusBox.append(heading, document.createTextNode(body));
+    }
 
-      while (nextRewardAt <= now) {
-        current += reward;
-        nextRewardAt += repeatMs;
-        changed = true;
+    function renderSchedule(current, goal, reward) {
+      els.rewardSchedule.replaceChildren();
+      if (nextRewardAt === null) {
+        els.rewardSchedule.textContent = "Set your in-game countdown to display upcoming reward dates.";
+        return;
       }
-
-      if (changed) {
-        els.currentRox.value = current;
-        saveState();
+      const needed = Math.max(0, Math.ceil((goal - current) / reward));
+      const count = Math.min(Math.max(needed, 5), 10);
+      for (let i = 0; i < count; i++) {
+        const date = new Date(nextRewardAt + i * repeatMs());
+        const predicted = current + (i + 1) * reward;
+        const row = document.createElement("div");
+        row.className = "reward-row" + (needed === i + 1 ? " goal-reached" : "");
+        const label = document.createElement("b");
+        label.textContent = needed === i + 1 ? "★ Goal reached" : "Reward #" + (i + 1);
+        const when = document.createElement("span");
+        when.textContent = formatDate(date);
+        const balance = document.createElement("small");
+        balance.textContent = "Projected: " + formatNumber(predicted) + " Shiny Rox";
+        row.append(label, when, balance);
+        els.rewardSchedule.append(row);
+      }
+      if (needed > count) {
+        const note = document.createElement("div");
+        note.className = "reward-row";
+        note.textContent = "More rewards follow. Your goal date is shown above.";
+        els.rewardSchedule.append(note);
       }
     }
 
     function calculate() {
-      advancePastRewards();
-
-      const current = numberValue(els.currentRox, 0);
-      const goal = numberValue(els.goalPrice, 0);
-      const reward = Math.max(1, numberValue(els.rewardAmount, 100));
-      const repeatHours = Math.max(1, numberValue(els.repeatHours, 24));
-      const now = Date.now();
-      const msToNext = nextRewardAt ? Math.max(0, nextRewardAt - now) : 0;
+      advanceClock();
+      const current = numberValue(els.currentRox);
+      const goal = numberValue(els.goalPrice);
+      const reward = rewardSize();
+      const msToNext = nextRewardAt === null ? null : Math.max(0, nextRewardAt - Date.now());
       const progress = goal <= 0 ? 0 : Math.min(100, Math.floor((current / goal) * 100));
-
       els.currentDisplay.textContent = formatNumber(current);
       els.goalDisplay.textContent = formatNumber(goal);
       els.progressText.textContent = progress + "%";
       els.progressBar.style.width = progress + "%";
       els.timerDisplay.textContent = formatDuration(msToNext);
+      renderSchedule(current, goal, reward);
 
       if (goal <= 0) {
         els.unlockDate.textContent = "Set goal";
         els.topUnlock.textContent = "Set goal";
-        els.statusBox.innerHTML = "<strong>Status</strong>Enter a cosmetic goal price.";
-        return;
-      }
-
-      if (current >= goal) {
-        els.unlockDate.textContent = "Ready";
-        els.topUnlock.textContent = "Ready";
-        els.statusBox.innerHTML = "<strong>Ready to buy</strong>You have enough Shiny Rox for this goal.";
-        return;
-      }
-
-      const needed = goal - current;
-      const rewardsNeeded = Math.ceil(needed / reward);
-
-      if (!nextRewardAt) {
+        showStatus("Set your goal", "Choose a cosmetic or enter its price.");
+      } else if (current >= goal) {
+        els.unlockDate.textContent = "Ready now";
+        els.topUnlock.textContent = "Ready now";
+        showStatus("Ready to buy", "Your entered balance is enough for your goal.");
+      } else if (nextRewardAt === null) {
         els.unlockDate.textContent = "Set timer";
         els.topUnlock.textContent = "Set timer";
-        els.statusBox.innerHTML = "<strong>Set timer</strong>You need " + formatNumber(needed) + " more Shiny Rox. Enter the in-game timer and click Set Timer.";
-        return;
+        showStatus("Set timer", "You need " + formatNumber(goal-current) + " more Shiny Rox. Enter your in-game countdown and click Set Timer.");
+      } else {
+        const rewardsNeeded = Math.ceil((goal - current) / reward);
+        const unlock = new Date(nextRewardAt + (rewardsNeeded-1)*repeatMs());
+        const dateText = formatDate(unlock);
+        els.unlockDate.textContent = dateText;
+        els.topUnlock.textContent = dateText;
+        showStatus("Estimated goal date", formatNumber(goal-current) + " Shiny Rox to go • " + rewardsNeeded + " more rewards • " + dateText + ". These dates are estimates, not automatic in-game payouts.");
       }
-
-      const totalMs = msToNext + (rewardsNeeded - 1) * repeatHours * 60 * 60 * 1000;
-      const unlock = new Date(now + totalMs);
-      const unlockText = formatDate(unlock);
-
-      els.unlockDate.textContent = unlockText;
-      els.topUnlock.textContent = unlockText;
-      els.statusBox.innerHTML = "<strong>Estimated unlock</strong>You need " + rewardsNeeded + " reward" + (rewardsNeeded === 1 ? "" : "s") + ". Estimated: " + unlockText + ".";
     }
 
     function setTimer() {
-      const hours = numberValue(els.nextHours, 0);
-      const minutes = numberValue(els.nextMinutes, 0);
-      const totalMs = ((hours * 60) + minutes) * 60 * 1000;
-
-      if (totalMs <= 0) {
-        nextRewardAt = null;
-        els.statusBox.innerHTML = "<strong>Timer not set</strong>Enter the timer from Gorilla Tag first.";
-      } else {
-        nextRewardAt = Date.now() + totalMs;
-        els.statusBox.innerHTML = "<strong>Timer set</strong>The countdown is now running in this browser.";
+      const hours = numberValue(els.nextHours);
+      const minutes = numberValue(els.nextMinutes);
+      if (minutes >= 60 || !Number.isInteger(hours) || !Number.isInteger(minutes)) {
+        showStatus("Invalid timer", "Use whole hours and minutes from 0 to 59.");
+        return;
       }
-
+      // Zero is meaningful: the next reward is due now.
+      nextRewardAt = Date.now() + ((hours * 60 + minutes) * MINUTE || 1000);
       saveState();
       calculate();
     }
 
     function resetTimer() {
+      nextRewardAt = null;
+      els.nextHours.value = 0;
+      els.nextMinutes.value = 0;
+      saveState();
+      calculate();
+    }
+
+    function resetAll() {
+      if (!window.confirm("Clear all Shiny Rox, your goal, and the timer?")) return;
       nextRewardAt = null;
       els.currentRox.value = 0;
       els.goalPrice.value = 0;
@@ -1166,32 +1218,26 @@
       els.repeatHours.value = 24;
       els.nextHours.value = 0;
       els.nextMinutes.value = 0;
-      localStorage.removeItem(STORAGE_KEY);
+      try { localStorage.removeItem(STORAGE_KEY); } catch {}
       calculate();
     }
 
     function addReward() {
-      const current = numberValue(els.currentRox, 0);
-      const reward = Math.max(1, numberValue(els.rewardAmount, 100));
-
-      els.currentRox.value = current + reward;
+      els.currentRox.value = numberValue(els.currentRox) + rewardSize();
       saveState();
       calculate();
     }
 
     function useRepeatAsNextTimer() {
-      const repeat = Math.max(1, numberValue(els.repeatHours, 24));
-
-      els.nextHours.value = repeat;
+      els.nextHours.value = Math.floor(numberValue(els.repeatHours,24));
       els.nextMinutes.value = 0;
-
       setTimer();
     }
 
     function renderCatalog() {
       const query = els.catalogSearch.value.trim().toLowerCase();
       const filtered = catalogItems.filter(item => {
-        const priceText = item.url ? "official link merch gorillacon website" : item.price === null ? "creator badge not buyable" : item.price < 0 ? "section limited" : String(item.price);
+        const priceText = item.url ? "official link" : item.price === null ? "creator badge not buyable" : item.price < 0 ? "section limited" : String(item.price);
         return (item.name + " " + item.note + " " + priceText).toLowerCase().includes(query);
       });
 
@@ -1230,7 +1276,7 @@
           ? item.note
           : item.price === null
           ? item.note
-          : item.note + " • " + formatNumber(item.price) + " Shiny Rox";
+          : item.price === 0 ? item.note + " • Free" : item.note + " • " + formatNumber(item.price) + " Shiny Rox";
 
         left.appendChild(title);
         left.appendChild(note);
@@ -1273,21 +1319,19 @@
 
     document.getElementById("addRewardBtn").addEventListener("click", addReward);
     document.getElementById("resetBtn").addEventListener("click", resetTimer);
+    document.getElementById("resetAllBtn").addEventListener("click", resetAll);
     document.getElementById("useRepeatBtn").addEventListener("click", useRepeatAsNextTimer);
 
     document.getElementById("topTipsBtn").addEventListener("click", () => {
       els.tipsBox.classList.toggle("show");
     });
 
-    document.getElementById("loadCatalogBtn").addEventListener("click", renderCatalog);
+    document.getElementById("loadCatalogBtn").addEventListener("click", () => { renderCatalog(); });
     els.catalogSearch.addEventListener("input", renderCatalog);
 
     document.querySelectorAll("[data-repeat]").forEach(button => {
       button.addEventListener("click", () => {
         els.repeatHours.value = button.dataset.repeat;
-        els.nextHours.value = button.dataset.repeat;
-        els.nextMinutes.value = 0;
-
         saveState();
         calculate();
       });
@@ -1307,7 +1351,6 @@
       });
     });
     loadState();
-    resetOldDemoDefaults();
     renderCatalog();
     calculate();
     setInterval(calculate, 1000);
